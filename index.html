@@ -1,0 +1,1829 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" href="./images/uniswap_logo.svg" />
+        <title>Uniswap</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,100..900&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="./css/styles.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/3.0.1/modern-normalize.min.css" integrity="sha512-q6WgHqiHlKyOqslT/lgBgodhd03Wp4BEqKeW6nNtlOY4quzyG3VoQKFrieaCeSnuVseNKRGpGeDU3qPmabCANg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <script type="module" src="./index.js"></script>
+    </head>
+    <body>
+        <header class="header">
+            <nav class="nav">
+                <div class="nav__wrap">
+                    <a href="" class="logo">
+                        <svg width="20" height="22" class="logo-image">
+                            <use href="./images/uniswap_logo.svg"></use>
+                        </svg>
+                        Uniswap
+                    </a>
+                    <button type="button" class="header__mob-menu"></button>
+                    <ul class="nav__list">
+                        <li class="nav__item">
+                            <p class="nav__link nav__list-dashboard-link" style="display: none;">Dashboard</p>
+                        </li>
+                        <li class="nav__item">
+                            <p class="nav__link nav__list-white-paper-link link-active">White Paper</p>
+                        </li>
+                        <li class="nav__item">
+                            <p class="nav__link nav__list-roadmap-link link-small">Roadmap</p>
+                        </li>
+                        <li class="nav__item">
+                            <p class="nav__link nav__list-faq-link link-bigger">FAQ</p>
+                        </li>
+                    </ul>
+                </div>
+                <div class="nav__user-wrap">
+                    <ul class="nav__cash-list">
+                        <li class="cash-list__item">
+                            <p class="cash-list__link">Available</p>
+                            <span class="cash-list__number">20399.80</span>
+                        </li>
+                        <li class="cash-list__item">
+                            <p class="cash-list__link">Locked</p>
+                            <span class="cash-list__number">58099.98</span>
+                        </li>
+                    </ul>
+                    <ul class="nav__sum-list">
+                        <li class="sum-list__item">
+                            <p class="sum-list__link link-small">Deposit</p>
+                        </li>
+                        <li class="sum-list__item">
+                            <p class="sum-list__link">Withdraw</p>
+                        </li>
+                    </ul>
+                    <button type="button" class="nav__user-icon">
+                        <svg width="21" height="21">
+                            <use href="./images/icon_user.svg"></use>
+                        </svg>
+                    </button>
+                    <div class="nav__user-sections is_hidden">
+                        <ul>
+                            <li class="user-sections__item">
+                                <svg width="15" height="15">
+                                    <use href="./images/icon_my_profile.svg"></use>
+                                </svg>
+                                <p class="user-sections__title" id="my-profile-link">My profile</p>
+                            </li>
+                            <li class="user-sections__item">
+                                <svg width="15" height="15">
+                                    <use href="./images/icon_referral_program.svg"></use>
+                                </svg>
+                                <p class="user-sections__title" id="referral-program-link">Referral Program</p>
+                            </li>
+                            <li class="user-sections__item">
+                                <svg width="15" height="15">
+                                    <use href="./images/icon_support.svg"></use>
+                                </svg>
+                                <p class="user-sections__title" id="support-link">Support</p>
+                            </li>
+                            <li class="user-sections__item">
+                                <svg width="15" height="15">
+                                    <use href="./images/icon_logout.svg"></use>
+                                </svg>
+                                <p class="user-sections__title user-sections__title-pink" id="logout-link">Logout</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <div class="uniswap-backdrop uniswap-backdrop-header is_hidden">
+                <div class="uniswap-message uniswap-message-logout">
+                    <p class="uniswap-message-title uniswap-message-title-pink">Logout</p>
+                    <p class="uniswap-message-after-title">Are you sure ?</p>
+                    <div class="uniswap-message-btn-wrap">
+                        <button type="button" class="uniswap-message-btn uniswap-message-btn-logout">Yes</button>
+                        <button type="button" class="uniswap-message-btn uniswap-message-btn-logout-pink">No</button>
+                    </div>
+                </div>
+            </div>
+            <div class="mob-menu__backdrop is_hidden">
+                <div class="mob-menu">
+                    <ul class="mob-menu__cash-list-mob">
+                        <li class="cash-list__item-mob">
+                            <p class="cash-list__link-mob">Available</p>
+                            <span class="cash-list__number-mob">20399.80</span>
+                        </li>
+                        <li class="cash-list__item-mob">
+                            <p class="cash-list__link-mob">Locked</p>
+                            <span class="cash-list__number-mob">58099.98</span>
+                        </li>
+                    </ul>
+                    <p class="mob-menu__title">Menu</p>
+                    <ul class="mob-menu__pages-list">
+                        <li class="pages-list__item">
+                            <svg width="20" height="20">
+                                <use href="./images/icon_mob_menu_white_paper.svg"></use>
+                            </svg>
+                            <p class="pages-list__link" id="white-paper-mob-link">White Paper</p>
+                        </li>
+                        <li class="pages-list__item">
+                            <svg width="20" height="20">
+                                <use href="./images/icon_mob_menu_stake.svg"></use>
+                            </svg>
+                            <p class="pages-list__link" id="stake-mob-link">Stake</p>
+                        </li>
+                        <li class="pages-list__item">
+                            <svg width="20" height="20">
+                                <use href="./images/icon_mob_menu_my_positions.svg"></use>
+                            </svg>
+                            <p class="pages-list__link" id="my-positions-mob-link">My Positions</p>
+                        </li>
+                    </ul>
+                    <p class="mob-menu__title">Ballance</p>
+                    <ul class="mob-menu__balance-list">
+                        <li class="balance-list__item">
+                            <svg width="20" height="20">
+                                <use href="./images/icon_mob_menu_deposit.svg"></use>
+                            </svg>
+                            <p class="balance-list__link">Deposit</p>
+                        </li>
+                        <li class="balance-list__item">
+                            <svg width="20" height="20">
+                                <use href="./images/icon_mob_menu_withdraw.svg"></use>
+                            </svg>
+                            <p class="balance-list__link">Withdraw</p>
+                        </li>
+                    </ul> 
+                </div>
+            </div>
+        </header>
+        <section class="authorization" style="display: none;">
+            <div class="authorization__container">
+                <a href="" class="logo logo-auth">
+                    <svg width="20" height="22" class="logo-image">
+                        <use href="./images/uniswap_logo.svg"></use>
+                    </svg>
+                    Uniswap
+                </a>
+                <div class="authorization-box__wrap">
+                    <div class="authorization-box">
+                        <h1 class="authorization-box__title">Login anytime, anywhere.</h1>
+                        <div class="uniswap-message-text-wrap uniswap-message-text-wrap-pink error-auth">
+                            <span class="uniswap-message-text uniswap-message-text-pink">Invalid email or password</span>
+                        </div>
+                        <form class="authorization-box__form">
+                            <label for="login-email" class="authorization-box__label">Email</label>
+                            <input type="email" 
+                                name="login-email" 
+                                class="authorization-box__input input-email" 
+                                id="login-email"
+                                required>
+                            <label for="login-password" class="authorization-box__label">Password</label>
+                            <input type="password" 
+                                name="login-password" 
+                                class="authorization-box__input" 
+                                id="login-password" 
+                                required>
+                            <button type="button" class="authorization-box__btn">Login</button>
+                            <div class="authorization-box__text-wrap">
+                                <p class="authorization-box__text">Don't have an account?</p>
+                                <span class="authorization-box__text_pink">Register here</span>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="authorization-box__register-wrap visually_hidden">
+                    <div class="authorization-box__register">
+                        <h1 class="authorization-box__title authorization-box__register-title">Create Your Account</h1>
+                        <form>
+                            <label for="register-email" class="authorization-box__label">Email</label>
+                            <input type="email" 
+                                name="register-email" 
+                                class="authorization-box__input input-email" 
+                                id="register-email" 
+                                required>
+                            <label for="register-password" class="authorization-box__label">Password</label>
+                            <input type="password" 
+                                name="register-password"
+                                class="authorization-box__input" 
+                                id="register-password" 
+                                required>
+                                <label for="secret-code" class="authorization-box__label" data-secret-code>Secret Code</label>
+                            <input type="text" 
+                                name="secret-code" 
+                                class="authorization-box__input" 
+                                id="secret-code">
+                            <label for="referral-code" class="authorization-box__label" data-referral-code>Referral Code (Optional)</label>
+                            <input type="text" 
+                                name="referral-code"
+                                class="authorization-box__input"
+                                id="referral-code">
+                            <button type="submit" class="authorization-box__btn">Create Account</button>
+                            <div class="authorization-box__text-wrap">
+                                <p class="authorization-box__text">Already have an account?</p>
+                                <span class="authorization-box__register-text_pink">Login here</span>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <main class="container">
+            <section class="market">
+                <div class="market__container">
+                    <ul class="tokens-list">
+                        <li class="tokens-list__item tokens-active">
+                            <img
+                                src="./images/usdc_icon.png"
+                                alt="USDC icon"
+                                class="tokens-list__icon">
+                            <p class="tokens-list__name">USDC</p>
+                        </li>
+                        <li class="tokens-list__item tokens-list__item-warning">
+                            <img
+                                src="./images/usdt_icon.png"
+                                alt="USDT icon"
+                                class="tokens-list__icon">
+                            <p class="tokens-list__name">USDT</p>
+                        </li>
+                        <li class="tokens-list__item tokens-list__item-warning">
+                            <img
+                                src="./images/dai_icon.png"
+                                alt="DAI icon"
+                                class="tokens-list__icon">
+                            <p class="tokens-list__name">DAI</p>
+                        </li>
+                    </ul>
+                    <div class="general-list__wrap">
+                        <ul class="general-list">
+                            <li class="general-list__item">
+                                <p class="general-list__name current link-to-market">Market</p>
+                            </li>
+                            <li class="general-list__item">
+                                <p class="general-list__name link-to-stake">Stake</p>
+                            </li>
+                            <li class="general-list__item">
+                                <p class="general-list__name link-to-my-positions">My Positions</p>
+                            </li>
+                        </ul>
+                        <ul class="tokens-list-mob">
+                            <li class="tokens-list__item-mob tokens-active">
+                                <img
+                                    src="./images/usdc_icon.png"
+                                    alt="USDC icon"
+                                    class="tokens-list__icon">
+                                <p class="tokens-list__name">USDC</p>
+                            </li>
+                            <li class="tokens-list__item-mob tokens-list__item-mob-warning">
+                                <img
+                                    src="./images/usdt_icon.png"
+                                    alt="USDT icon"
+                                    class="tokens-list__icon">
+                                <p class="tokens-list__name">USDT</p>
+                            </li>
+                            <li class="tokens-list__item-mob tokens-list__item-mob-warning">
+                                <img
+                                    src="./images/dai_icon.png"
+                                    alt="DAI icon"
+                                    class="tokens-list__icon">
+                                <p class="tokens-list__name">DAI</p>
+                            </li>
+                        </ul>
+                        <div class="market__tokens-grid">
+                            <div class="tokens-grid__row tokens-grid__header">
+                                <div class="tokens-grid__name">PAIR</div>
+                                <div class="tokens-grid__name">PI</div>
+                                <div class="tokens-grid__name">BL</div>
+                                <div class="tokens-grid__name">UT</div>
+                                <div class="tokens-grid__name">ROL</div>
+                            </div>
+                            <div class="tokens-grid__row">
+                                <div class="tokens-grid__position">
+                                    <img
+                                        src="./images/trx_icon.png"
+                                        alt="TRX icon"
+                                        class="tokens-grid__icon">
+                                    <p class="tokens-grid__coin">TRX-USDC</p>
+                                    <p class="tokens-grid__coin-mob">TRX</p>
+                                </div>
+                                <div class="tokens-grid__position">19.87</div>
+                                <div class="tokens-grid__position">1.09</div>
+                                <div class="tokens-grid__position">1.09</div>
+                                <div class="tokens-grid__position">1.09</div>
+                            </div>
+                            <div class="tokens-grid__row">
+                                <div class="tokens-grid__position">
+                                    <img
+                                        src="./images/hype_icon.png"
+                                        alt="HYPE icon"
+                                        class="tokens-grid__icon">
+                                    <p class="tokens-grid__coin">HYPE-USDC</p>
+                                    <p class="tokens-grid__coin-mob">HYPE</p>
+                                </div>
+                                <div class="tokens-grid__position">19.87</div>
+                                <div class="tokens-grid__position">1.09</div>
+                                <div class="tokens-grid__position">1.09</div>
+                                <div class="tokens-grid__position">1.09</div>
+                            </div>
+                            <div class="tokens-grid__row">
+                                <div class="tokens-grid__position">
+                                    <img
+                                        src="./images/bnb_icon.png"
+                                        alt="BNB icon"
+                                        class="tokens-grid__icon">
+                                    <p class="tokens-grid__coin">BNB-USDC</p>
+                                    <p class="tokens-grid__coin-mob">BNB</p>
+                                </div>
+                                <div class="tokens-grid__position">19.87</div>
+                                <div class="tokens-grid__position">1.09</div>
+                                <div class="tokens-grid__position">1.09</div>
+                                <div class="tokens-grid__position">1.09</div>
+                            </div>
+                            <div class="tokens-grid__row">
+                                <div class="tokens-grid__position">
+                                    <img
+                                        src="./images/sol_icon.png"
+                                        alt="SOL icon"
+                                        class="tokens-grid__icon">
+                                    <p class="tokens-grid__coin">SOL-USDC</p>
+                                    <p class="tokens-grid__coin-mob">SOL</p>
+                                </div>
+                                <div class="tokens-grid__position">19.87</div>
+                                <div class="tokens-grid__position">1.09</div>
+                                <div class="tokens-grid__position">1.09</div>
+                                <div class="tokens-grid__position">1.09</div>
+                            </div>
+                            <div class="tokens-grid__row">
+                                <div class="tokens-grid__position">
+                                    <img
+                                        src="./images/ada_icon.png"
+                                        alt="ADA icon"
+                                        class="tokens-grid__icon">
+                                    <p class="tokens-grid__coin">ADA-USDC</p>
+                                    <p class="tokens-grid__coin-mob">ADA</p>
+                                </div>
+                                <div class="tokens-grid__position">19.87</div>
+                                <div class="tokens-grid__position">1.09</div>
+                                <div class="tokens-grid__position">1.09</div>
+                                <div class="tokens-grid__position">1.09</div>
+                            </div>
+                            <div class="tokens-grid__row">
+                                <div class="tokens-grid__position">
+                                    <img
+                                        src="./images/xrp_icon.png"
+                                        alt="XRP icon"
+                                        class="tokens-grid__icon">
+                                    <p class="tokens-grid__coin">XRP-USDC</p>
+                                    <p class="tokens-grid__coin-mob">XRP</p>
+                                </div>
+                                <div class="tokens-grid__position">19.87</div>
+                                <div class="tokens-grid__position">1.09</div>
+                                <div class="tokens-grid__position">1.09</div>
+                                <div class="tokens-grid__position">1.09</div>
+                            </div>
+                            <div class="tokens-grid__row">
+                                <div class="tokens-grid__position">
+                                    <img
+                                        src="./images/doge_icon.png"
+                                        alt="DOGE icon"
+                                        class="tokens-grid__icon">
+                                    <p class="tokens-grid__coin">DOGE-USDC</p>
+                                    <p class="tokens-grid__coin-mob">DOGE</p>
+                                </div>
+                                <div class="tokens-grid__position">19.87</div>
+                                <div class="tokens-grid__position">1.09</div>
+                                <div class="tokens-grid__position">1.09</div>
+                                <div class="tokens-grid__position">1.09</div>
+                            </div>
+                            <div class="tokens-grid__row">
+                                <div class="tokens-grid__position">
+                                    <img
+                                        src="./images/link_icon.png"
+                                        alt="LINK icon"
+                                        class="tokens-grid__icon">
+                                    <p class="tokens-grid__coin">LINK-USDC</p>
+                                    <p class="tokens-grid__coin-mob">LINK</p>
+                                </div>
+                                <div class="tokens-grid__position">19.87</div>
+                                <div class="tokens-grid__position">1.09</div>
+                                <div class="tokens-grid__position">1.09</div>
+                                <div class="tokens-grid__position">1.09</div>
+                            </div>
+                            <div class="tokens-grid__row">
+                                <div class="tokens-grid__position">
+                                    <img
+                                        src="./images/atom_icon.png"
+                                        alt="ATOM icon"
+                                        class="tokens-grid__icon">
+                                    <p class="tokens-grid__coin">ATOM-USDC</p>
+                                    <p class="tokens-grid__coin-mob">ATOM</p>
+                                </div>
+                                <div class="tokens-grid__position">19.87</div>
+                                <div class="tokens-grid__position">1.09</div>
+                                <div class="tokens-grid__position">1.09</div>
+                                <div class="tokens-grid__position">1.09</div>
+                            </div>
+                            <div class="tokens-grid__row">
+                                <div class="tokens-grid__position">
+                                    <img
+                                        src="./images/sui_icon.png"
+                                        alt="SUI icon"
+                                        class="tokens-grid__icon">
+                                    <p class="tokens-grid__coin">SUI-USDC</p>
+                                    <p class="tokens-grid__coin-mob">SUI</p>
+                                </div>
+                                <div class="tokens-grid__position">19.87</div>
+                                <div class="tokens-grid__position">1.09</div>
+                                <div class="tokens-grid__position">1.09</div>
+                                <div class="tokens-grid__position">1.09</div>
+                            </div>
+                            <div class="tokens-grid__row">
+                                <div class="tokens-grid__position">
+                                    <img
+                                        src="./images/shiba_icon.png"
+                                        alt="SHIBA icon"
+                                        class="tokens-grid__icon">
+                                    <p class="tokens-grid__coin">SHIBA-USDC</p>
+                                    <p class="tokens-grid__coin-mob">SHIBA</p>
+                                </div>
+                                <div class="tokens-grid__position">19.87</div>
+                                <div class="tokens-grid__position">1.09</div>
+                                <div class="tokens-grid__position">1.09</div>
+                                <div class="tokens-grid__position">1.09</div>
+                            </div>
+                            <div class="tokens-grid__row">
+                                <div class="tokens-grid__position">
+                                    <img
+                                        src="./images/ltc_icon.png"
+                                        alt="LTC icon"
+                                        class="tokens-grid__icon">
+                                    <p class="tokens-grid__coin">LTC-USDC</p>
+                                    <p class="tokens-grid__coin-mob">LTC</p>
+                                </div>
+                                <div class="tokens-grid__position">19.87</div>
+                                <div class="tokens-grid__position">1.09</div>
+                                <div class="tokens-grid__position">1.09</div>
+                                <div class="tokens-grid__position">1.09</div>
+                            </div>
+                            <div class="tokens-grid__row">
+                                <div class="tokens-grid__position">
+                                    <img
+                                        src="./images/pepe_icon.png"
+                                        alt="PEPE icon"
+                                        class="tokens-grid__icon">
+                                    <p class="tokens-grid__coin">PEPE-USDC</p>
+                                    <p class="tokens-grid__coin-mob">PEPE</p>
+                                </div>
+                                <div class="tokens-grid__position">19.87</div>
+                                <div class="tokens-grid__position">1.09</div>
+                                <div class="tokens-grid__position">1.09</div>
+                                <div class="tokens-grid__position">1.09</div>
+                            </div>
+                            <div class="tokens-grid__row">
+                                <div class="tokens-grid__position">
+                                    <img
+                                        src="./images/dot_icon.png"
+                                        alt="DOT icon"
+                                        class="tokens-grid__icon">
+                                    <p class="tokens-grid__coin">DOT-USDC</p>
+                                    <p class="tokens-grid__coin-mob">DOT</p>
+                                </div>
+                                <div class="tokens-grid__position">19.87</div>
+                                <div class="tokens-grid__position">1.09</div>
+                                <div class="tokens-grid__position">1.09</div>
+                                <div class="tokens-grid__position">1.09</div>
+                            </div>
+                            <div class="tokens-grid__row">
+                                <div class="tokens-grid__position">
+                                    <img
+                                        src="./images/mkr_icon.png"
+                                        alt="MKR icon"
+                                        class="tokens-grid__icon">
+                                    <p class="tokens-grid__coin">MKR-USDC</p>
+                                    <p class="tokens-grid__coin-mob">MKR</p>
+                                </div>
+                                <div class="tokens-grid__position">19.87</div>
+                                <div class="tokens-grid__position">1.09</div>
+                                <div class="tokens-grid__position">1.09</div>
+                                <div class="tokens-grid__position">1.09</div>
+                            </div>
+                            <div class="tokens-grid__row">
+                                <div class="tokens-grid__position">
+                                    <img
+                                        src="./images/cake_icon.png"
+                                        alt="CAKE icon"
+                                        class="tokens-grid__icon">
+                                    <p class="tokens-grid__coin">CAKE-USDC</p>
+                                    <p class="tokens-grid__coin-mob">CAKE</p>
+                                </div>
+                                <div class="tokens-grid__position">19.87</div>
+                                <div class="tokens-grid__position">1.09</div>
+                                <div class="tokens-grid__position">1.09</div>
+                                <div class="tokens-grid__position">1.09</div>
+                            </div>
+                            <div class="tokens-grid__row">
+                                <div class="tokens-grid__position">
+                                    <img
+                                        src="./images/uni_icon.png"
+                                        alt="UNI icon"
+                                        class="tokens-grid__icon">
+                                    <p class="tokens-grid__coin">UNI-USDC</p>
+                                    <p class="tokens-grid__coin-mob">UNI</p>
+                                </div>
+                                <div class="tokens-grid__position">19.87</div>
+                                <div class="tokens-grid__position">1.09</div>
+                                <div class="tokens-grid__position">1.09</div>
+                                <div class="tokens-grid__position">1.09</div>
+                            </div>
+                            <div class="tokens-grid__row">
+                                <div class="tokens-grid__position">
+                                    <img
+                                        src="./images/ton_icon.png"
+                                        alt="TON icon"
+                                        class="tokens-grid__icon">
+                                    <p class="tokens-grid__coin">TON-USDC</p>
+                                    <p class="tokens-grid__coin-mob">TON</p>
+                                </div>
+                                <div class="tokens-grid__position">19.87</div>
+                                <div class="tokens-grid__position">1.09</div>
+                                <div class="tokens-grid__position">1.09</div>
+                                <div class="tokens-grid__position">1.09</div>
+                            </div>
+                            <div class="tokens-grid__row">
+                                <div class="tokens-grid__position">
+                                    <img
+                                        src="./images/axs_icon.png"
+                                        alt="AXS icon"
+                                        class="tokens-grid__icon">
+                                    <p class="tokens-grid__coin">AXS-USDC</p>
+                                    <p class="tokens-grid__coin-mob">AXS</p>
+                                </div>
+                                <div class="tokens-grid__position">19.87</div>
+                                <div class="tokens-grid__position">1.09</div>
+                                <div class="tokens-grid__position">1.09</div>
+                                <div class="tokens-grid__position">1.09</div>
+                            </div>
+                            <div class="tokens-grid__row">
+                                <div class="tokens-grid__position">
+                                    <img
+                                        src="./images/deep_icon.png"
+                                        alt="DEEP icon"
+                                        class="tokens-grid__icon">
+                                    <p class="tokens-grid__coin">DEEP-USDC</p>
+                                    <p class="tokens-grid__coin-mob">DEEP</p>
+                                </div>
+                                <div class="tokens-grid__position">19.87</div>
+                                <div class="tokens-grid__position">1.09</div>
+                                <div class="tokens-grid__position">1.09</div>
+                                <div class="tokens-grid__position">1.09</div>
+                            </div>
+                            <div class="tokens-grid__row">
+                                <div class="tokens-grid__position">
+                                    <img
+                                        src="./images/aave_icon.png"
+                                        alt="AAVE icon"
+                                        class="tokens-grid__icon">
+                                    <p class="tokens-grid__coin">AAVE-USDC</p>
+                                    <p class="tokens-grid__coin-mob">AAVE</p>
+                                </div>
+                                <div class="tokens-grid__position">19.87</div>
+                                <div class="tokens-grid__position">1.09</div>
+                                <div class="tokens-grid__position">1.09</div>
+                                <div class="tokens-grid__position">1.09</div>
+                            </div>
+                            <div class="tokens-grid__row">
+                                <div class="tokens-grid__position">
+                                    <img
+                                        src="./images/aster_icon.png"
+                                        alt="ASTER icon"
+                                        class="tokens-grid__icon">
+                                    <p class="tokens-grid__coin">ASTER-USDC</p>
+                                    <p class="tokens-grid__coin-mob">ASTER</p>
+                                </div>
+                                <div class="tokens-grid__position">19.87</div>
+                                <div class="tokens-grid__position">1.09</div>
+                                <div class="tokens-grid__position">1.09</div>
+                                <div class="tokens-grid__position">1.09</div>
+                            </div>
+                            <div class="tokens-grid__row">
+                                <div class="tokens-grid__position">
+                                    <img
+                                        src="./images/ondo_icon.png"
+                                        alt="ONDO icon"
+                                        class="tokens-grid__icon">
+                                    <p class="tokens-grid__coin">ONDO-USDC</p>
+                                    <p class="tokens-grid__coin-mob">ONDO</p>
+                                </div>
+                                <div class="tokens-grid__position">19.87</div>
+                                <div class="tokens-grid__position">1.09</div>
+                                <div class="tokens-grid__position">1.09</div>
+                                <div class="tokens-grid__position">1.09</div>
+                            </div>
+                            <div class="tokens-grid__row">
+                                <div class="tokens-grid__position">
+                                    <img
+                                        src="./images/arb_icon.png"
+                                        alt="ARB icon"
+                                        class="tokens-grid__icon">
+                                    <p class="tokens-grid__coin">ARB-USDC</p>
+                                    <p class="tokens-grid__coin-mob">ARB</p>
+                                </div>
+                                <div class="tokens-grid__position">19.87</div>
+                                <div class="tokens-grid__position">1.09</div>
+                                <div class="tokens-grid__position">1.09</div>
+                                <div class="tokens-grid__position">1.09</div>
+                            </div>
+                            <div class="tokens-grid__row">
+                                <div class="tokens-grid__position">
+                                    <img
+                                        src="./images/pump_icon.png"
+                                        alt="PUMP icon"
+                                        class="tokens-grid__icon">
+                                    <p class="tokens-grid__coin">PUMP-USDC</p>
+                                    <p class="tokens-grid__coin-mob">PUMP</p>
+                                </div>
+                                <div class="tokens-grid__position">19.87</div>
+                                <div class="tokens-grid__position">1.09</div>
+                                <div class="tokens-grid__position">1.09</div>
+                                <div class="tokens-grid__position">1.09</div>
+                            </div>
+                            <div class="tokens-grid__row">
+                                <div class="tokens-grid__position">
+                                    <img
+                                        src="./images/vet_icon.png"
+                                        alt="VET icon"
+                                        class="tokens-grid__icon">
+                                    <p class="tokens-grid__coin">VET-USDC</p>
+                                    <p class="tokens-grid__coin-mob">VET</p>
+                                </div>
+                                <div class="tokens-grid__position">19.87</div>
+                                <div class="tokens-grid__position">1.09</div>
+                                <div class="tokens-grid__position">1.09</div>
+                                <div class="tokens-grid__position">1.09</div>
+                            </div>
+                            <div class="tokens-grid__row">
+                                <div class="tokens-grid__position">
+                                    <img
+                                        src="./images/wld_icon.png"
+                                        alt="WLD icon"
+                                        class="tokens-grid__icon">
+                                    <p class="tokens-grid__coin">WLD-USDC</p>
+                                    <p class="tokens-grid__coin-mob">WLD</p>
+                                </div>
+                                <div class="tokens-grid__position">19.87</div>
+                                <div class="tokens-grid__position">1.09</div>
+                                <div class="tokens-grid__position">1.09</div>
+                                <div class="tokens-grid__position">1.09</div>
+                            </div>
+                            <div class="tokens-grid__row">
+                                <div class="tokens-grid__position">
+                                    <img
+                                        src="./images/bgb_icon.png"
+                                        alt="BGB icon"
+                                        class="tokens-grid__icon">
+                                    <p class="tokens-grid__coin">BGB-USDC</p>
+                                    <p class="tokens-grid__coin-mob">BGB</p>
+                                </div>
+                                <div class="tokens-grid__position">19.87</div>
+                                <div class="tokens-grid__position">1.09</div>
+                                <div class="tokens-grid__position">1.09</div>
+                                <div class="tokens-grid__position">1.09</div>
+                            </div>
+                            <div class="tokens-grid__row">
+                                <div class="tokens-grid__position">
+                                    <img
+                                        src="./images/wlfi_icon.png"
+                                        alt="WLFI icon"
+                                        class="tokens-grid__icon">
+                                    <p class="tokens-grid__coin">WLFI-USDC</p>
+                                    <p class="tokens-grid__coin-mob">WLFI</p>
+                                </div>
+                                <div class="tokens-grid__position">19.87</div>
+                                <div class="tokens-grid__position">1.09</div>
+                                <div class="tokens-grid__position">1.09</div>
+                                <div class="tokens-grid__position">1.09</div>
+                            </div>
+                            <div class="tokens-grid__row">
+                                <div class="tokens-grid__position">
+                                    <img
+                                        src="./images/xmr_icon.png"
+                                        alt="XMR icon"
+                                        class="tokens-grid__icon">
+                                    <p class="tokens-grid__coin">XMR-USDC</p>
+                                    <p class="tokens-grid__coin-mob">XMR</p>
+                                </div>
+                                <div class="tokens-grid__position">19.87</div>
+                                <div class="tokens-grid__position">1.09</div>
+                                <div class="tokens-grid__position">1.09</div>
+                                <div class="tokens-grid__position">1.09</div>
+                            </div>
+                        </div>
+                        <form class="market__stake-form" style="display: none;">
+                            <label for="stake-form-select-pair" class="stake-form__label">
+                                <div class="stake-form__pair-wrap is_hidden">
+                                    <ul class="stake-form__pair-list">
+                                        <li class="stake-form__pair-item">
+                                            <img src="./images/dai_icon.png"
+                                                alt="DAI icon"
+                                                class="stake-form__pair-icon">
+                                            <p class="stake-form__pair-text current">ADA-USDT</p>
+                                        </li>
+                                        <li class="stake-form__pair-item">
+                                            <img src="./images/dai_icon.png"
+                                                alt="DAI icon"
+                                                class="stake-form__pair-icon">
+                                            <p class="stake-form__pair-text">ADA-USDT</p>
+                                        </li>
+                                        <li class="stake-form__pair-item">
+                                            <img src="./images/dai_icon.png"
+                                                alt="DAI icon"
+                                                class="stake-form__pair-icon">
+                                            <p class="stake-form__pair-text">ADA-USDT</p>
+                                        </li>
+                                        <li class="stake-form__pair-item">
+                                            <img src="./images/dai_icon.png"
+                                                alt="DAI icon"
+                                                class="stake-form__pair-icon">
+                                            <p class="stake-form__pair-text">ADA-USDT</p>
+                                        </li>
+                                        <li class="stake-form__pair-item">
+                                            <img src="./images/dai_icon.png"
+                                                alt="DAI icon"
+                                                class="stake-form__pair-icon">
+                                            <p class="stake-form__pair-text">ADA-USDT</p>
+                                        </li>
+                                        <li class="stake-form__pair-item">
+                                            <img src="./images/dai_icon.png"
+                                                alt="DAI icon"
+                                                class="stake-form__pair-icon">
+                                            <p class="stake-form__pair-text">ADA-USDT</p>
+                                        </li>
+                                        <li class="stake-form__pair-item">
+                                            <img src="./images/dai_icon.png"
+                                                alt="DAI icon"
+                                                class="stake-form__pair-icon">
+                                            <p class="stake-form__pair-text">ADA-USDT</p>
+                                        </li>
+                                    </ul>
+                                </div>
+                                Pair
+                            </label>
+                            <input id="stake-form-select-pair" name="stake-form-select-pair" placeholder="Select pair" class="stake-form__select"/>
+                            <div class="stake-form__checkbox-wrap">
+                                <input type="checkbox"
+                                    name="market-checkbox" 
+                                    id="market-checkbox" 
+                                    class="stake-form__checkbox visually_hidden">
+                                <label for="market-checkbox" class="stake-form__label label-checkbox">
+                                    Use Referral Balance
+                                </label>
+                            </div>
+                            <label for="stake-form-amount" class="stake-form__label">Amount</label>
+                            <input type="text" id="stake-form-amount" name="stake-form-amount" class="stake-form__input"/>
+                            <label for="stake-form-lock-period" class="stake-form__label">
+                                <div class="stake-form__lock-period-wrap is_hidden">
+                                    <ul class="stake-form__lock-period-list">
+                                        <li class="stake-form__lock-period-item">
+                                            <span class="stake-form__lock-period-text current">1 month</span>
+                                        </li>
+                                        <li class="stake-form__lock-period-item">
+                                            <span class="stake-form__lock-period-text">3 month</span>
+                                        </li>
+                                        <li class="stake-form__lock-period-item">
+                                            <span class="stake-form__lock-period-text">6 month</span>
+                                        </li>
+                                        <li class="stake-form__lock-period-item">
+                                            <span class="stake-form__lock-period-text">12 month</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                                Lock period
+                            </label>
+                            <input id="stake-form-lock-period" name="stake-form-lock-period" placeholder="1 month" class="stake-form__select"/>
+                            <div class="uniswap-market__btn-wrap uniswap-market__btn-wrap-stake">
+                                <button type="button" class="uniswap-market__btn uniswap-market__btn-create-stake">Create Stake</button>
+                            </div>
+                        </form>
+                        <div class="market__my-positions" style="display: none;">
+                            <ul class="my-positions__list">
+                                <li class="my-positions__item">
+                                    <div class="my-positions__main-tokens-wrap">
+                                        <div class="my-positions__tokens-wrap">
+                                            <img
+                                                src="./images/trx_icon.png"
+                                                alt="TRX icon"
+                                                class="my-positions__icon">
+                                            <p class="my-positions__tokens">TRX-USDC</p>
+                                        </div>
+                                        <span class="my-positions__tokens-value">+105%</span>
+                                    </div>
+                                    <div class="my-positions__definition-value-wrap">
+                                        <div class="my-positions__definition-wrap">
+                                            <p class="my-positions__definition">Amount:</p>
+                                            <p class="my-positions__definition">Locked from:</p>
+                                            <p class="my-positions__definition">Locked until:</p>
+                                            <p class="my-positions__definition">Type:</p>
+                                        </div>
+                                        <div class="my-positions__value-wrap">
+                                            <span class="my-positions__value">1000.000</span>
+                                            <span class="my-positions__value">9/20/2025</span>
+                                            <span class="my-positions__value">10/20/2025</span>
+                                            <span class="my-positions__value">Regular</span>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="my-positions__item">
+                                    <div class="my-positions__main-tokens-wrap">
+                                        <div class="my-positions__tokens-wrap">
+                                            <img
+                                                src="./images/trx_icon.png"
+                                                alt="TRX icon"
+                                                class="my-positions__icon">
+                                            <p class="my-positions__tokens">TRX-USDC</p>
+                                        </div>
+                                        <span class="my-positions__tokens-value">+105%</span>
+                                    </div>
+                                    <div class="my-positions__definition-value-wrap">
+                                        <div class="my-positions__definition-wrap">
+                                            <p class="my-positions__definition">Amount:</p>
+                                            <p class="my-positions__definition">Locked from:</p>
+                                            <p class="my-positions__definition">Locked until:</p>
+                                            <p class="my-positions__definition">Type:</p>
+                                        </div>
+                                        <div class="my-positions__value-wrap">
+                                            <span class="my-positions__value">1000.000</span>
+                                            <span class="my-positions__value">9/20/2025</span>
+                                            <span class="my-positions__value">10/20/2025</span>
+                                            <span class="my-positions__value">Regular</span>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="my-positions__item">
+                                    <div class="my-positions__main-tokens-wrap">
+                                        <div class="my-positions__tokens-wrap">
+                                            <img
+                                                src="./images/trx_icon.png"
+                                                alt="TRX icon"
+                                                class="my-positions__icon">
+                                            <p class="my-positions__tokens">TRX-USDC</p>
+                                        </div>
+                                        <span class="my-positions__tokens-value">+105%</span>
+                                    </div>
+                                    <div class="my-positions__definition-value-wrap">
+                                        <div class="my-positions__definition-wrap">
+                                            <p class="my-positions__definition">Amount:</p>
+                                            <p class="my-positions__definition">Locked from:</p>
+                                            <p class="my-positions__definition">Locked until:</p>
+                                            <p class="my-positions__definition">Type:</p>
+                                        </div>
+                                        <div class="my-positions__value-wrap">
+                                            <span class="my-positions__value">1000.000</span>
+                                            <span class="my-positions__value">9/20/2025</span>
+                                            <span class="my-positions__value">10/20/2025</span>
+                                            <span class="my-positions__value">Regular</span>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="my-positions__item">
+                                    <div class="my-positions__main-tokens-wrap">
+                                        <div class="my-positions__tokens-wrap">
+                                            <img
+                                                src="./images/trx_icon.png"
+                                                alt="TRX icon"
+                                                class="my-positions__icon">
+                                            <p class="my-positions__tokens">TRX-USDC</p>
+                                        </div>
+                                        <span class="my-positions__tokens-value">+105%</span>
+                                    </div>
+                                    <div class="my-positions__definition-value-wrap">
+                                        <div class="my-positions__definition-wrap">
+                                            <p class="my-positions__definition">Amount:</p>
+                                            <p class="my-positions__definition">Locked from:</p>
+                                            <p class="my-positions__definition">Locked until:</p>
+                                            <p class="my-positions__definition">Type:</p>
+                                        </div>
+                                        <div class="my-positions__value-wrap">
+                                            <span class="my-positions__value">1000.000</span>
+                                            <span class="my-positions__value">9/20/2025</span>
+                                            <span class="my-positions__value">10/20/2025</span>
+                                            <span class="my-positions__value">Regular</span>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="my-positions__item">
+                                    <div class="my-positions__main-tokens-wrap">
+                                        <div class="my-positions__tokens-wrap">
+                                            <img
+                                                src="./images/trx_icon.png"
+                                                alt="TRX icon"
+                                                class="my-positions__icon">
+                                            <p class="my-positions__tokens">TRX-USDC</p>
+                                        </div>
+                                        <span class="my-positions__tokens-value">+105%</span>
+                                    </div>
+                                    <div class="my-positions__definition-value-wrap">
+                                        <div class="my-positions__definition-wrap">
+                                            <p class="my-positions__definition">Amount:</p>
+                                            <p class="my-positions__definition">Locked from:</p>
+                                            <p class="my-positions__definition">Locked until:</p>
+                                            <p class="my-positions__definition">Type:</p>
+                                        </div>
+                                        <div class="my-positions__value-wrap">
+                                            <span class="my-positions__value">1000.000</span>
+                                            <span class="my-positions__value">9/20/2025</span>
+                                            <span class="my-positions__value">10/20/2025</span>
+                                            <span class="my-positions__value">Regular</span>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="my-positions__item">
+                                    <div class="my-positions__main-tokens-wrap">
+                                        <div class="my-positions__tokens-wrap">
+                                            <img
+                                                src="./images/trx_icon.png"
+                                                alt="TRX icon"
+                                                class="my-positions__icon">
+                                            <p class="my-positions__tokens">TRX-USDC</p>
+                                        </div>
+                                        <span class="my-positions__tokens-value">+105%</span>
+                                    </div>
+                                    <div class="my-positions__definition-value-wrap">
+                                        <div class="my-positions__definition-wrap">
+                                            <p class="my-positions__definition">Amount:</p>
+                                            <p class="my-positions__definition">Locked from:</p>
+                                            <p class="my-positions__definition">Locked until:</p>
+                                            <p class="my-positions__definition">Type:</p>
+                                        </div>
+                                        <div class="my-positions__value-wrap">
+                                            <span class="my-positions__value">1000.000</span>
+                                            <span class="my-positions__value">9/20/2025</span>
+                                            <span class="my-positions__value">10/20/2025</span>
+                                            <span class="my-positions__value">Regular</span>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="my-positions__item">
+                                    <div class="my-positions__main-tokens-wrap">
+                                        <div class="my-positions__tokens-wrap">
+                                            <img
+                                                src="./images/trx_icon.png"
+                                                alt="TRX icon"
+                                                class="my-positions__icon">
+                                            <p class="my-positions__tokens">TRX-USDC</p>
+                                        </div>
+                                        <span class="my-positions__tokens-value">+105%</span>
+                                    </div>
+                                    <div class="my-positions__definition-value-wrap">
+                                        <div class="my-positions__definition-wrap">
+                                            <p class="my-positions__definition">Amount:</p>
+                                            <p class="my-positions__definition">Locked from:</p>
+                                            <p class="my-positions__definition">Locked until:</p>
+                                            <p class="my-positions__definition">Type:</p>
+                                        </div>
+                                        <div class="my-positions__value-wrap">
+                                            <span class="my-positions__value">1000.000</span>
+                                            <span class="my-positions__value">9/20/2025</span>
+                                            <span class="my-positions__value">10/20/2025</span>
+                                            <span class="my-positions__value">Regular</span>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="my-positions__item">
+                                    <div class="my-positions__main-tokens-wrap">
+                                        <div class="my-positions__tokens-wrap">
+                                            <img
+                                                src="./images/trx_icon.png"
+                                                alt="TRX icon"
+                                                class="my-positions__icon">
+                                            <p class="my-positions__tokens">TRX-USDC</p>
+                                        </div>
+                                        <span class="my-positions__tokens-value">+105%</span>
+                                    </div>
+                                    <div class="my-positions__definition-value-wrap">
+                                        <div class="my-positions__definition-wrap">
+                                            <p class="my-positions__definition">Amount:</p>
+                                            <p class="my-positions__definition">Locked from:</p>
+                                            <p class="my-positions__definition">Locked until:</p>
+                                            <p class="my-positions__definition">Type:</p>
+                                        </div>
+                                        <div class="my-positions__value-wrap">
+                                            <span class="my-positions__value">1000.000</span>
+                                            <span class="my-positions__value">9/20/2025</span>
+                                            <span class="my-positions__value">10/20/2025</span>
+                                            <span class="my-positions__value">Regular</span>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                            <div class="uniswap-market__btn-wrap uniswap-market__btn-wrap-my-positions">
+                                <button type="button" class="uniswap-market__btn">Claim all</button>
+                                <button type="button" class="uniswap-market__exmark">
+                                    !
+                                    <div class="uniswap-market__info-wrap is_hidden">
+                                        <p class="uniswap-market__info">Every stake is available to claim from 10$ income</p>
+                                    </div>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="uniswap-backdrop uniswap-backdrop-warning is_hidden">
+                    <div class="uniswap-message uniswap-message-warning">
+                        <p class="uniswap-message-title uniswap-message-title-pink">Warning</p>
+                        <p class="uniswap-message-after-title">This pools are unavailable for your country!</p>
+                        <button type="button" class="uniswap-message-btn uniswap-message-btn-pink uniswap-message-btn-warning">OK</button>
+                    </div>
+                </div>
+                <div class="uniswap-backdrop uniswap-backdrop-error-validate is_hidden">
+                    <div class="uniswap-message uniswap-message-error-validate">
+                        <p class="uniswap-message-title uniswap-message-title-pink">Error</p>
+                        <p class="uniswap-message-after-title">Validation Error</p>
+                        <div class="uniswap-message-text-wrap uniswap-message-text-wrap-pink">
+                            <span class="uniswap-message-text uniswap-message-text-pink">Please select a trading pair from the dropdown.</span>
+                        </div>
+                        <button type="button" class="uniswap-message-btn uniswap-message-btn-pink uniswap-message-btn-error-validate">OK</button>
+                    </div>
+                </div>
+                <div class="uniswap-backdrop uniswap-backdrop-error-create is_hidden">
+                    <div class="uniswap-message uniswap-message-error-create">
+                        <p class="uniswap-message-title uniswap-message-title-pink">Error</p>
+                        <p class="uniswap-message-after-title">Failed to Create Stake</p>
+                        <div class="uniswap-message-text-wrap uniswap-message-text-wrap-pink">
+                            <span class="uniswap-message-text uniswap-message-text-pink">Insufficient balance</span>
+                        </div>
+                        <button type="button" class="uniswap-message-btn uniswap-message-btn-pink uniswap-message-btn-error-create">OK</button>
+                    </div>
+                </div>
+                <div class="uniswap-backdrop uniswap-backdrop-success is_hidden">
+                    <div class="uniswap-message uniswap-message-success">
+                        <p class="uniswap-message-title uniswap-message-title-green">Success</p>
+                        <p class="uniswap-message-after-title">Stake Created Successfully!</p>
+                        <div class="uniswap-message-text-wrap uniswap-message-text-wrap-green">
+                            <span class="uniswap-message-text uniswap-message-text-green">Your 1000.000 stake in ADA-USDT has been created and will start earning income immediately.</span>
+                        </div>
+                        <button type="button" class="uniswap-message-btn uniswap-message-btn-green uniswap-message-btn-success">OK</button>
+                    </div>
+                </div>
+            </section>
+            <section class="dashboard" style="display: none;">
+                <div class="dashboard__container">
+                    <div class="dashboard__nav">
+                        <p class="dashboard__nav-title dashboard__nav-title-active">Overview</p>
+                        <p class="dashboard__nav-title">Analytics</p>
+                        <p class="dashboard__nav-title">Reports</p>
+                        <p class="dashboard__nav-title">Notifications</p>
+                    </div>
+                    <ul class="statistic__list">
+                        <li class="statistic__item">
+                            <p class="total-users-title">Total Users</p>
+                            <span class="statistic__general-value">12,345</span>
+                            <span class="statistic__percentage-value">+12.5% <span class="statistic__value-text">from last month</span></span>
+                        </li>
+                        <li class="statistic__item">
+                            <p class="active-sessions-title">Active Sessions</p>
+                            <span class="statistic__general-value">3,456</span>
+                            <span class="statistic__percentage-value">+8.2% <span class="statistic__value-text">from last month</span></span>
+                        </li>
+                        <li class="statistic__item">
+                            <p class="revenue-title">Revenue</p>
+                            <span class="statistic__general-value">$45,678</span>
+                            <span class="statistic__percentage-value">+23.1% <span class="statistic__value-text">from last month</span></span>
+                        </li>
+                        <li class="statistic__item">
+                            <p class="growth-title">Growth</p>
+                            <span class="statistic__general-value">89.2%</span>
+                            <span class="statistic__percentage-value">+4.3% <span class="statistic__value-text">from last month</span></span>
+                        </li>
+                    </ul>
+                    <div class="recent-activity__wrap">
+                        <p class="recent-activity__title">Recent Activity</p>
+                        <p class="recent-activity__after-title">Your latest updates and changes</p>
+                        <ul class="recent-activity__list">
+                            <li class="recent-activity__item">
+                                <p class="recent-activity__position">Activity item 1
+                                    <span class="recent-activity__time">1 hours ago</span>
+                                </p>
+                            </li>
+                            <li class="recent-activity__item">
+                                <p class="recent-activity__position">Activity item 2
+                                    <span class="recent-activity__time">2 hours ago</span>
+                                </p>
+                            </li>
+                            <li class="recent-activity__item">
+                                <p class="recent-activity__position">Activity item 3
+                                    <span class="recent-activity__time">3 hours ago</span>
+                                </p>
+                            </li>
+                            <li class="recent-activity__item">
+                                <p class="recent-activity__position">Activity item 4
+                                    <span class="recent-activity__time">4 hours ago</span>
+                                </p>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="quick-stats__wrap">
+                        <p class="quick-stats__title">Quick Stats</p>
+                        <p class="quick-stats__after-title">Performance metrics at a glance</p>
+                        <ul class="quick-stats__list">
+                            <li class="quick-stats__item">
+                                <p class="quick-stats__position">Conversion Rate</p>
+                                <span class="quick-stats__value">3.24%</span>
+                            </li>
+                            <li class="quick-stats__item">
+                                <p class="quick-stats__position">Avg. Session Duration</p>
+                                <span class="quick-stats__value">4m 32s</span>
+                            </li>
+                            <li class="quick-stats__item">
+                                <p class="quick-stats__position">Bounce Rate</p>
+                                <span class="quick-stats__value">42.3%</span>
+                            </li>
+                            <li class="quick-stats__item">
+                                <p class="quick-stats__position">Pages per Session</p>
+                                <span class="quick-stats__value">5.6</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+            <section class="roadmap" style="display: none;">
+                <div class="roadmap__container">
+                    <div class="roadmap__line"></div>
+                    <ul class="roadmap__list">
+                        <li class="roadmap__item">
+                            <div class="roadmap__quarter-wrap">
+                                <span class="roadmap__quarter">Q1 2024</span>
+                                <p class="roadmap__title">Foundation & Launch</p>
+                                <p class="roadmap__after-title">Initial project setup and platform launch</p>
+                            </div>
+                            <ul class="roadmap__plan-list">
+                                <li class="roadmap__plan-item">
+                                    <p class="plan-item__title">Project initialization</p>
+                                </li>
+                                <li class="roadmap__plan-item">
+                                    <p class="plan-item__title">Core team formation</p>
+                                </li>
+                                <li class="roadmap__plan-item">
+                                    <p class="plan-item__title">Platform architecture design</p>
+                                </li>
+                                <li class="roadmap__plan-item">
+                                    <p class="plan-item__title">Beta launch</p>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="roadmap__item">
+                            <div class="roadmap__quarter-wrap">
+                                <span class="roadmap__quarter">Q2 2024</span>
+                                <p class="roadmap__title">Growth & Expansion</p>
+                                <p class="roadmap__after-title">User base growth and feature expansion</p>
+                            </div>
+                            <ul class="roadmap__plan-list">
+                                <li class="roadmap__plan-item">
+                                    <p class="plan-item__title">Mobile app release</p>
+                                </li>
+                                <li class="roadmap__plan-item">
+                                    <p class="plan-item__title">Partnership announcements</p>
+                                </li>
+                                <li class="roadmap__plan-item">
+                                    <p class="plan-item__title">Community building</p>
+                                </li>
+                                <li class="roadmap__plan-item">
+                                    <p class="plan-item__title">Feature set expansion</p>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="roadmap__item">
+                            <div class="roadmap__quarter-wrap">
+                                <span class="roadmap__quarter">Q3 2024</span>
+                                <p class="roadmap__title">Enhancement & Optimization</p>
+                                <p class="roadmap__after-title">Platform improvements and optimizations</p>
+                            </div>
+                            <ul class="roadmap__plan-list">
+                                <li class="roadmap__plan-item">
+                                    <p class="plan-item__title">Performance optimization</p>
+                                </li>
+                                <li class="roadmap__plan-item">
+                                    <p class="plan-item__title">UI/UX improvements</p>
+                                </li>
+                                <li class="roadmap__plan-item">
+                                    <p class="plan-item__title">Advanced analytics</p>
+                                </li>
+                                <li class="roadmap__plan-item">
+                                    <p class="plan-item__title">API v2 release</p>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="roadmap__item">
+                            <div class="roadmap__quarter-wrap">
+                                <span class="roadmap__quarter">Q4 2024</span>
+                                <p class="roadmap__title">Integration & Scaling</p>
+                                <p class="roadmap__after-title">Third-party integrations and infrastructure scaling</p>
+                            </div>
+                            <ul class="roadmap__plan-list">
+                                <li class="roadmap__plan-item">
+                                    <p class="plan-item__title plan-item__title-grey">Major integrations</p>
+                                </li>
+                                <li class="roadmap__plan-item">
+                                    <p class="plan-item__title plan-item__title-grey">Infrastructure upgrade</p>
+                                </li>
+                                <li class="roadmap__plan-item">
+                                    <p class="plan-item__title plan-item__title-grey">International expansion</p>
+                                </li>
+                                <li class="roadmap__plan-item">
+                                    <p class="plan-item__title plan-item__title-grey">Security audit</p>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="roadmap__item">
+                            <div class="roadmap__quarter-wrap">
+                                <span class="roadmap__quarter">Q1 2025</span>
+                                <p class="roadmap__title">Innovation & Advanced Features</p>
+                                <p class="roadmap__after-title">Next-generation features and capabilities</p>
+                            </div>
+                            <ul class="roadmap__plan-list">
+                                <li class="roadmap__plan-item">
+                                    <p class="plan-item__title plan-item__title-grey">AI-powered features</p>
+                                </li>
+                                <li class="roadmap__plan-item">
+                                    <p class="plan-item__title plan-item__title-grey">Advanced automation</p>
+                                </li>
+                                <li class="roadmap__plan-item">
+                                    <p class="plan-item__title plan-item__title-grey">Enterprise solutions</p>
+                                </li>
+                                <li class="roadmap__plan-item">
+                                    <p class="plan-item__title plan-item__title-grey">Blockchain integration</p>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="roadmap__item">
+                            <div class="roadmap__quarter-wrap">
+                                <span class="roadmap__quarter">Q2 2025</span>
+                                <p class="roadmap__title">Ecosystem Maturity</p>
+                                <p class="roadmap__after-title">Full ecosystem development and maturity</p>
+                            </div>
+                            <ul class="roadmap__plan-list">
+                                <li class="roadmap__plan-item">
+                                    <p class="plan-item__title plan-item__title-grey">Developer marketplace</p>
+                                </li>
+                                <li class="roadmap__plan-item">
+                                    <p class="plan-item__title plan-item__title-grey">Plugin ecosystem</p>
+                                </li>
+                                <li class="roadmap__plan-item">
+                                    <p class="plan-item__title plan-item__title-grey">Advanced governance</p>
+                                </li>
+                                <li class="roadmap__plan-item">
+                                    <p class="plan-item__title plan-item__title-grey">Global presence</p>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+            <section class="faq" style="display: none;">
+                <div class="faq__container">
+                    <p class="faq__title">Frequently Asked Questions</p>
+                    <p class="faq__after-title">Everything you need to know about cryptocurrency</p>
+                    <ul class="faq__list">
+                        <li class="faq__item">
+                            <div class="faq__item-title-wrap">
+                                <p class="faq__item-title">What is cryptocurrency?</p>
+                                <svg width="16" height="16" class="faq__item-arrow">
+                                    <use href="./images/icon_faq_arrow.svg"></use>
+                                </svg>
+                            </div>
+                            <p class="faq__item-text">Cryptocurrency is a digital or virtual currency that uses cryptography for security. It operates independently of
+                                a central bank and uses decentralized technology to let users make secure payments and store money without
+                                needing to use their name or go through a bank.
+                            </p>
+                        </li>
+                        <li class="faq__item">
+                            <div class="faq__item-title-wrap">
+                                <p class="faq__item-title">How do I get started with crypto?</p>
+                                <svg width="16" height="16" class="faq__item-arrow">
+                                    <use href="./images/icon_faq_arrow.svg"></use>
+                                </svg>
+                            </div>
+                            
+                        </li>
+                        <li class="faq__item">
+                            <div class="faq__item-title-wrap">
+                                <p class="faq__item-title">Is cryptocurrency safe?</p>
+                                <svg width="16" height="16" class="faq__item-arrow">
+                                    <use href="./images/icon_faq_arrow.svg"></use>
+                                </svg>
+                            </div>
+                        </li>
+                        <li class="faq__item">
+                            <div class="faq__item-title-wrap">
+                                <p class="faq__item-title">What are gas fees?</p>
+                                <svg width="16" height="16" class="faq__item-arrow">
+                                    <use href="./images/icon_faq_arrow.svg"></use>
+                                </svg>
+                            </div>
+                        </li>
+                        <li class="faq__item">
+                            <div class="faq__item-title-wrap">
+                                <p class="faq__item-title">What's the difference between a wallet and an exchange?</p>
+                                <svg width="16" height="16" class="faq__item-arrow">
+                                    <use href="./images/icon_faq_arrow.svg"></use>
+                                </svg>
+                            </div>
+                        </li>
+                        <li class="faq__item">
+                            <div class="faq__item-title-wrap">
+                                <p class="faq__item-title">Can I reverse a crypto transaction?</p>
+                                <svg width="16" height="16" class="faq__item-arrow">
+                                    <use href="./images/icon_faq_arrow.svg"></use>
+                                </svg>
+                            </div>
+                        </li>
+                        <li class="faq__item">
+                            <div class="faq__item-title-wrap">
+                                <p class="faq__item-title">What is staking?</p>
+                                <svg width="16" height="16" class="faq__item-arrow">
+                                    <use href="./images/icon_faq_arrow.svg"></use>
+                                </svg>
+                            </div>
+                        </li>
+                        <li class="faq__item">
+                            <div class="faq__item-title-wrap">
+                                <p class="faq__item-title">How are cryptocurrencies taxed?</p>
+                                <svg width="16" height="16" class="faq__item-arrow">
+                                    <use href="./images/icon_faq_arrow.svg"></use>
+                                </svg>
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="contact-support__wrap">
+                        <p class="contact-support__title">Still have questions?</p>
+                        <p class="contact-support__after-title">Can't find the answer you're looking for? Our support team is here to help.</p>
+                        <button type="button" class="contact-support__btn">Contact Support</button>
+                    </div>
+                </div>
+            </section>
+            <section class="user-profile" style="display: none;">
+                <div class="user-profile__container">
+                    <div class="user-profile__wrap">
+                        <div class="user-profile__img-wrap">
+                            <p class="user-profile__img">J</p>
+                        </div>
+                        <div>
+                            <p class="user-profile__label label-user">Unverified</p>
+                            <p class="user-profile__email">john.doe@example.com</p>
+                        </div>
+                    </div>
+                    <ul class="balance-income__list">
+                        <li class="balance-income__item">
+                            <p class="balance-title">Balance</p>
+                            <p class="balance-income__after-title">Available Balance</p>
+                            <span class="balance-income__general-value">$2,500.75</span>
+                            <p class="balance-income__after-title">Referral Balance</p>
+                            <span class="balance-income__referral-value">$150.50</span>
+                        </li>
+                        <li class="balance-income__item">
+                            <p class="income-title">Income</p>
+                            <p class="balance-income__after-title">Total Income</p>
+                            <span class="balance-income__general-value">$8,750.00</span>
+                            <p class="balance-income__after-title">Referral Income</p>
+                            <span class="balance-income__referral-value">$1,250.25</span>
+                        </li>
+                    </ul>
+                    <div class="verification__wrap">
+                        <p class="verification__title">Email Verification Required</p>
+                        <p class="verification__first-text">Verify your email to get verification level 1 and unlock additional features.</p>
+                        <p class="verification__second-text">We need to verify your email address: john.doe@example.com</p>
+                        <button type="button" class="verification__btn">Send Verification Email</button>
+                    </div>
+                    <div class="verification-lvl__main-wrap">
+                        <p class="verification-lvl__title">Verification Level</p>
+                        <div class="verification-lvl__wrap">
+                            <p class="verification-lvl__after-title">Your verification level is</p>
+                            <p class="user-profile__label label-lvl">Level 0</p>
+                        </div>
+                        <div class="verification-lvl__progress-title-wrap">
+                            <p class="verification-lvl__progress-title">Progress</p>
+                            <p class="verification-lvl__progress-value">0/2</p>
+                        </div>
+                        <p class="verification-lvl__features-title">Available Features:</p>
+                        <ul class="verification-lvl__list">
+                            <li class="verification-lvl__item">
+                                <p class="verification-lvl__features-name">Deposit</p>
+                            </li>
+                            <li class="verification-lvl__item">
+                                <p class="verification-lvl__features-name">Stake</p>
+                            </li>
+                            <li class="verification-lvl__item">
+                                <p class="verification-lvl__features-name">Information Dashboard</p>
+                            </li>
+                        </ul>
+                        <div class="verification-lvl__btn-wrap">
+                            <p class="verification-lvl__btn-title">Upgrade to level 1 for withdraw / referral program</p>
+                            <button type="button" class="verification-lvl__btn">
+                                <img
+                                    src="./images/icon_arrow_up.png"
+                                    alt="Arrow up icon"
+                                    class="verification-lvl__btn-icon">
+                                Verify Email First
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="referral-program" style="display: none;">
+                <div class="referral-program__container">
+                    <h2 class="referral-program__title">Referral Program</h2>
+                    <div class="referral-balance__wrap">
+                        <p class="referral-balance__title">Referral Balance</p>
+                        <span class="referral-balance__value">175 534,03<span class="referral-balance__value-small"> / 175 534,03</span></span>
+                        <div class="referral-balance__code-wrap">
+                            <div>
+                                <p class="referral-balance__code-title">Your Referral Code</p>
+                                <span class="referral-balance__code">vMbLA72z</span>
+                            </div>
+                            <button type="button" class="referral-balance__btn">Copy Code</button>
+                        </div>
+                    </div>
+                    <ul class="progress__list">
+                        <li class="progress__item">
+                            <div class="progress__lvl-wrap">
+                                <p class="progress__lvl">Level 1
+                                    <svg width="16" height="16" class="progress__lvl-icon-first">
+                                        <use href="./images/icon_faq.svg"></use>
+                                    </svg>
+                                    <div class="hint-first is_hidden">
+                                        <p class="uniswap-market__info">Every stake is available to claim from 10$ income</p>
+                                    </div>
+                                </p>
+                                <span class="progress__lvl-value progress__lvl-value-green">25%</span>
+                            </div>
+                            <div class="progress__text-value-wrap">
+                                <p class="progress__text-value">Progress</p>
+                                <span class="progress__text-value">274 916,11 / 15 000</span>
+                            </div>
+                            <img src="./images/icon_progress_bar.png" alt="Progress bar line" class="progress__bar">
+                            <div class="progress__text-value-wrap">
+                                <span class="progress__text-value text-value-white">274 916,11</span>
+                                <span class="progress__text-value text-value-bold">15 000</span>
+                            </div>
+                            <div class="progress__main-value-wrap better-value">
+                                <p class="progress__text-value">EARNING</p>
+                                <span class="progress__main-value">68 729,03<span class="progress__text-value text-value-usdt">USDT</span></span>
+                            </div>
+                        </li>
+                        <li class="progress__item">
+                            <div class="progress__lvl-wrap">
+                                <p class="progress__lvl">Level 2
+                                    <svg width="16" height="16" class="progress__lvl-icon-second">
+                                        <use href="./images/icon_faq.svg"></use>
+                                    </svg>
+                                    <div class="hint-second is_hidden">
+                                        <p class="uniswap-market__info">Every stake is available to claim from 10$ income</p>
+                                    </div>
+                                </p>
+                                <span class="progress__lvl-value progress__lvl-value-green">10%</span>
+                            </div>
+                            <div class="progress__text-value-wrap">
+                                <p class="progress__text-value">Progress</p>
+                                <span class="progress__text-value">580 385,1 /  35 000</span>
+                            </div>
+                            <img src="./images/icon_progress_bar.png" alt="Progress bar line" class="progress__bar">
+                            <div class="progress__text-value-wrap">
+                                <span class="progress__text-value text-value-white">580 385,1</span>
+                                <span class="progress__text-value text-value-bold"> 35 000</span>
+                            </div>
+                            <div class="progress__main-value-wrap better-value">
+                                <p class="progress__text-value">EARNING</p>
+                                <span class="progress__main-value">58 038,51<span class="progress__text-value text-value-usdt">USDT</span></span>
+                            </div>
+                        </li>
+                        <li class="progress__item">
+                            <div class="progress__lvl-wrap">
+                                <p class="progress__lvl">Level 3</p>
+                                <span class="progress__lvl-value">5%</span>
+                            </div>
+                            <div class="progress__text-value-wrap">
+                                <p class="progress__text-value">Progress</p>
+                                <span class="progress__text-value">480 797,1 / 70 000</span>
+                            </div>
+                            <img src="./images/icon_progress_bar.png" alt="Progress bar line" class="progress__bar">
+                            <div class="progress__text-value-wrap">
+                                <span class="progress__text-value text-value-white">480 797,1</span>
+                                <span class="progress__text-value">70 000</span>
+                            </div>
+                            <div class="progress__main-value-wrap">
+                                <p class="progress__text-value">EARNING</p>
+                                <span class="progress__main-value">24 039,85<span class="progress__text-value text-value-usdt">USDT</span></span>
+                            </div>
+                        </li>
+                        <li class="progress__item">
+                            <div class="progress__lvl-wrap">
+                                <p class="progress__lvl">Level 4</p>
+                                <span class="progress__lvl-value">2.5%</span>
+                            </div>
+                            <div class="progress__text-value-wrap">
+                                <p class="progress__text-value">Progress</p>
+                                <span class="progress__text-value">979 991,58 / 100 000</span>
+                            </div>
+                            <img src="./images/icon_progress_bar.png" alt="Progress bar line" class="progress__bar">
+                            <div class="progress__text-value-wrap">
+                                <span class="progress__text-value text-value-white">979 991,58</span>
+                                <span class="progress__text-value">100 000</span>
+                            </div>
+                            <div class="progress__main-value-wrap">
+                                <p class="progress__text-value">EARNING</p>
+                                <span class="progress__main-value">24 499,79<span class="progress__text-value text-value-usdt">USDT</span></span>
+                            </div>
+                        </li>
+                        <li class="progress__item">
+                            <div class="progress__lvl-wrap">
+                                <p class="progress__lvl">Level 5</p>
+                                <span class="progress__lvl-value">0.1%</span>
+                            </div>
+                            <div class="progress__text-value-wrap">
+                                <p class="progress__text-value">Progress</p>
+                                <span class="progress__text-value">226 852,08 / 200 000</span>
+                            </div>
+                            <img src="./images/icon_progress_bar.png" alt="Progress bar line" class="progress__bar">
+                            <div class="progress__text-value-wrap">
+                                <span class="progress__text-value text-value-white">226 852,08</span>
+                                <span class="progress__text-value">200 000</span>
+                            </div>
+                            <div class="progress__main-value-wrap">
+                                <p class="progress__text-value">EARNING</p>
+                                <span class="progress__main-value">226,85<span class="progress__text-value text-value-usdt">USDT</span></span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+            <section class="support" style="display: none;">
+                <div class="support__container">
+                    <div class="support__title-main-wrap">
+                        <div>
+                            <p class="support__title">My Tickets</p>
+                            <p class="support__after-title">All your support requests</p>
+                        </div>
+                        <div class="support__btn-wrap">
+                            <button type="button" class="support__btn support__btn-archive">
+                                <svg width="13" height="13">
+                                    <use href="./images/icon_support_archive.svg"></use>
+                                </svg>
+                                <span class="support__btn-text support__btn-text-archive">Аrchive</span>
+                            </button>
+                            <button type="button" class="support__btn support__btn-new-ticket">
+                                <svg width="16" height="16">
+                                    <use href="./images/icon_support_plus.svg"></use>
+                                </svg>
+                                <span class="support__btn-text support__btn-text-new-ticket">New Ticket</span>
+                            </button>
+                        </div>
+                    </div>
+                    <ul class="ticket-list">
+                        <li class="ticket-list__item">
+                            <div class="ticket-list__title-wrap">
+                                <p class="ticket-list__title">Payment Issue</p>
+                                <p class="ticket-list__label">In Progress</p>
+                            </div>
+                            <p class="ticket-list__last-message">Thanks, we will check and get back to you</p>
+                            <div class="ticket-list__time-wrap">
+                                <span class="ticket-list__message-number">4</span>
+                                <span class="ticket-list__time">3d ago</span>
+                            </div>
+                        </li>
+                        <li class="ticket-list__item">
+                            <div class="ticket-list__title-wrap">
+                                <p class="ticket-list__title">Question About Functionality</p>
+                                <p class="ticket-list__label">Open</p>
+                            </div>
+                            <p class="ticket-list__last-message">How can I export data to Excel?</p>
+                            <div class="ticket-list__time-wrap">
+                                <span class="ticket-list__message-number">1</span>
+                                <span class="ticket-list__time">Yesterday</span>
+                            </div>
+                        </li>
+                        <li class="ticket-list__item">
+                            <div class="ticket-list__title-wrap">
+                                <p class="ticket-list__title">Confirmation Email Not Received</p>
+                                <p class="ticket-list__label">Open</p>
+                            </div>
+                            <p class="ticket-list__last-message">Great, thanks!</p>
+                            <div class="ticket-list__time-wrap">
+                                <span class="ticket-list__message-number">3</span>
+                                <span class="ticket-list__time">5d ago</span>
+                            </div>
+                        </li>
+                    </ul>
+                    <ul class="archive-list visually_hidden">
+                        <li class="archive-list__item">
+                            <div class="archive-list__title-wrap">
+                                <p class="archive-list__title">Payment Issue</p>
+                                <p class="archive-list__label label-closed">Closed</p>
+                            </div>
+                            <p class="archive-list__last-message">Thanks, we will check and get back to you</p>
+                            <div class="archive-list__time-wrap">
+                                <span class="archive-list__message-number">4</span>
+                                <span class="archive-list__time">3d ago</span>
+                            </div>
+                        </li>
+                        <li class="archive-list__item">
+                            <div class="archive-list__title-wrap">
+                                <p class="archive-list__title">Question About Functionality</p>
+                                <p class="archive-list__label label-closed">Closed</p>
+                            </div>
+                            <p class="archive-list__last-message">How can I export data to Excel?</p>
+                            <div class="archive-list__time-wrap">
+                                <span class="archive-list__message-number">1</span>
+                                <span class="archive-list__time">Yesterday</span>
+                            </div>
+                        </li>
+                        <li class="archive-list__item">
+                            <div class="archive-list__title-wrap">
+                                <p class="archive-list__title">Confirmation Email Not Received</p>
+                                <p class="archive-list__label label-closed">Closed</p>
+                            </div>
+                            <p class="archive-list__last-message">Great, thanks!</p>
+                            <div class="archive-list__time-wrap">
+                                <span class="archive-list__message-number">3</span>
+                                <span class="archive-list__time">5d ago</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="create-ticket__backdrop is_hidden">
+                    <div class="create-ticket">
+                        <svg width="16" height="16" class="create-ticket__cross">
+                            <use href="./images/icon_cross.svg"></use>
+                        </svg>
+                        <p class="create-ticket__title">Create New Ticket</p>
+                        <form>
+                            <label for="new-ticket-subject" class="create-ticket__label">Subject</label>
+                            <input type="text" 
+                                name="new-ticket-subject" 
+                                class="create-ticket__input" 
+                                id="new-ticket-subject"
+                                placeholder="Briefly describe the issue"
+                                required>
+                            <label for="new-ticket-description" class="create-ticket__label">Description</label>
+                            <textarea type="text" 
+                                name="new-ticket-description" 
+                                class="create-ticket__input input-decription" 
+                                id="new-ticket-description"
+                                placeholder="Describe your issue or question in detail..."
+                                required></textarea>
+                            <div class="create-ticket__btn-wrap">
+                                <button type="button" class="create-ticket__btn-cancel">Cancel</button>
+                                <button type="button" class="create-ticket__btn-create">Create Ticket</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </section>
+            <section class="ticket" style="display: none;">
+                <div class="ticket__container">
+                    <div class="ticket__title-main-wrap">
+                        <svg width="16" height="16" class="ticket__arrow">
+                            <use href="./images/icon_ticket_arrow.svg"></use>
+                        </svg>
+                        <div class="ticket__title-wrap">
+                            <p class="ticket__title">Payment Issue</p>
+                            <p class="ticket__label">In Progress</p>
+                        </div>
+                        <span class="ticket__data">Created Oct 10, 03:00 AM</span>
+                    </div>
+                    <div class="user-message__wrap">
+                        <p class="user-message__text">Hello! My card payment is not going through. I've tried several times but keep getting an error.</p>
+                        <span class="user-message__data">You · Oct 10, 10:00 AM</span>
+                    </div>
+                    <div class="support-message__wrap support-message__not-last-wrap">
+                        <p class="support-message__text">Good day! Thank you for reaching out. What error code is being displayed?</p>
+                        <span class="support-message__data">Support · Oct 10, 10:15 AM</span>
+                    </div>
+                    <div class="user-message__wrap">
+                        <p class="user-message__text">Error code: ERR_PAYMENT_503</p>
+                        <span class="user-message__data">You · Oct 10, 10:20 AM</span>
+                    </div>
+                    <div class="support-message__wrap support-message__last-wrap">
+                        <p class="support-message__text">Thanks, we will check and get back to you</p>
+                        <span class="support-message__data">Support · Oct 10, 10:25 AM</span>
+                    </div>
+                    <div class="write-message__wrap">
+                        <form class="write-message__form">
+                            <textarea name="write-message" id="write-message" class="write-message__field" placeholder="Write a message..."></textarea>
+                            <button type="button" class="write-message__btn">
+                                <svg width="16" height="16">
+                                    <use href="./images/icon_write_message.svg"></use>
+                                </svg>
+                            </button>
+                        </form>
+                        <span class="write-message__description">Press Enter to send, Shift+Enter for new line</span>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <footer class="footer">
+            <div class="footer__container">
+                <div class="footer__main-wrap">
+                    <div class="footer__link-wrap">
+                        <div class="footer__link-wrap-smalls wrap-smalls-mob">
+                            <h3 class="footer__link-title">Products</h3>
+                            <ul class="footer__link-list">
+                                <li class="link-list__item">
+                                    <p class="link-list__text">Wallet</p>
+                                </li>
+                                <li class="link-list__item">
+                                    <p class="link-list__text">UniswapX</p>
+                                </li>
+                                <li class="link-list__item">
+                                    <p class="link-list__text">API</p>
+                                </li>
+                                <li class="link-list__item">
+                                    <p class="link-list__text">Unichain</p>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="footer__link-wrap-smalls">
+                            <h3 class="footer__link-title">Protocol</h3>
+                            <ul class="footer__link-list">
+                                <li class="link-list__item">
+                                    <p class="link-list__text">Vote</p>
+                                </li>
+                                <li class="link-list__item">
+                                    <p class="link-list__text">Governance</p>
+                                </li>
+                                <li class="link-list__item">
+                                    <p class="link-list__text">Developers</p>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="footer__link-wrap-smalls">
+                            <h3 class="footer__link-title">Company</h3>
+                            <ul class="footer__link-list">
+                                <li class="link-list__item">
+                                    <p class="link-list__text">About</p>
+                                </li>
+                                <li class="link-list__item">
+                                    <p class="link-list__text">Careers</p>
+                                </li>
+                                <li class="link-list__item">
+                                    <p class="link-list__text">Blog</p>
+                                </li>
+                                <li class="link-list__item">
+                                    <p class="link-list__text">Brand assets</p>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="footer__link-wrap-smalls wrap-smalls-pl">
+                            <h3 class="footer__link-title">Need help?</h3>
+                            <ul class="footer__link-list">
+                                <li class="link-list__item">
+                                    <p class="link-list__text">Help center</p>
+                                </li>
+                                <li class="link-list__item">
+                                    <p class="link-list__text">Contact us</p>
+                                </li>   
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="footer__social-wrap">
+                        <ul class="footer__social-list">
+                            <li class="social-list__item">
+                                <a href="https://github.com/" target="_blank"
+                                        rel="noopener noreferrer nofollow">
+                                    <img
+                                        src="./images/github.png"
+                                        alt="Github icon"
+                                        class="social-list__icon">
+                                </a>
+                            </li>
+                            <li class="social-list__item">
+                                <a href="https://x.com/" target="_blank"
+                                        rel="noopener noreferrer nofollow">
+                                    <img
+                                        src="./images/x.png"
+                                        alt="X icon"
+                                        class="social-list__icon">
+                                </a>
+                            </li>
+                            <li class="social-list__item">
+                                <a href="https://discord.com/" target="_blank"
+                                        rel="noopener noreferrer nofollow">
+                                    <img
+                                        src="./images/discord.png"
+                                        alt="Discord icon"
+                                        class="social-list__icon">
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="footer__copyright-wrap">
+                    <p class="footer__copyright">© 2025 - Uniswap Labs</p>
+                    <ul class="footer__policy-list">
+                        <li class="policy-list__item">
+                            <p class="policy-list__name">Privacy Policy</p>
+                        </li>
+                        <li class="policy-list__item">
+                            <p class="policy-list__name">Trademark Policy</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </footer>
+    </body>
+</html>

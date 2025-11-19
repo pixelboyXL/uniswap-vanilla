@@ -1,0 +1,8 @@
+import "./js/refs.js";
+import "./js/simple.js";
+import "./js/authorization.js";
+import "./js/market.js";
+import "./js/switching.js";
+import "./js/referral-rpogram.js";
+import "./js/faq.js";
+import "./js/support.js";
