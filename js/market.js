@@ -41,9 +41,9 @@ import { uniswapMarketBtnCreateStake,
 import { toggleIsHidden, 
     showSection, 
     hideSection, 
-    toggleCustomClass,
     addCurrentClass, 
     removeCurrentClass,
+    toggleCustomClass,
     addLinkActive,
     removeLinkActive } from './simple.js';
 import { showMainSections, hideMainSections, hidePersonalSections } from './switching.js';
