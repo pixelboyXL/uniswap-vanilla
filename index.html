@@ -1735,6 +1735,91 @@
                     </div>
                 </div>
             </section>
+            <section class="withdraw" style="display: none;">
+                <div class="withdraw__container">
+                    <h1 class="withdraw__title">Withdraw Funds</h1>
+                    <p class="withdraw__after-title">Select network and enter withdrawal details</p>
+                    <div class="available-withdraw__wrap">
+                        <p class="available-withdraw__text">Available for Withdrawal</p>
+                        <span class="available-withdraw__value" id="withdrawableBalance">$0.00</span>
+                    </div>
+                    <div class="withdraw-form__main-wrap">
+                        <form id="withdrawForm">
+                            <div class="withdraw-form__small-wrap">
+                                <label class="withdraw-form__label">Network</label>
+                                <div class="select-wrapper">
+                                    <div class="custom-select" id="networkSelect">
+                                        <div class="select-display">
+                                            <span class="select-placeholder">Select Network</span>
+                                        </div>
+                                        <img src="./images/market_select_arrow.png" alt="market_select_arrow" class="select-arrow">
+                                    </div>
+                                    <div class="dropdown-menu" id="networkDropdown"></div>
+                                </div>
+                            </div>
+                            <div class="withdraw-form__small-wrap">
+                                <label class="withdraw-form__label">Coin</label>
+                                <div class="select-wrapper">
+                                    <div class="custom-select disabled" id="coinSelect">
+                                        <div class="select-display">
+                                            <span class="select-placeholder">Select Network First</span>
+                                        </div>
+                                        <img src="./images/market_select_arrow.png" alt="market_select_arrow" class="select-arrow">
+                                    </div>
+                                    <div class="dropdown-menu" id="coinDropdown"></div>
+                                </div>
+                            </div>
+                            <div class="withdraw-form__small-wrap">
+                                <label class="withdraw-form__label">Withdrawal Address</label>
+                                <input type="text"
+                                    class="address-input disabled"
+                                    id="addressInput"
+                                    placeholder="Enter wallet address"
+                                    disabled>
+                                <div class="error-message" id="addressError">Please enter a valid address</div>
+                            </div>
+                            <div class="withdraw-form__small-wrap">
+                                <label class="withdraw-form__label">Amount</label>
+                                <div class="amount-input-wrapper">
+                                    <input type="number"
+                                        class="amount-input"
+                                        id="amountInput"
+                                        placeholder="0.00"
+                                        min="10"
+                                        step="0.01">
+                                    <span class="currency-label">USD</span>
+                                </div>
+                                <div class="error-message" id="amountError">Amount must be at least $10</div>
+                            </div>
+                            <div class="total-deduction">
+                                <div class="total-deduction__small-wrap">
+                                    <p class="total-deduction__text">Withdrawal Amount:</p>
+                                    <span class="total-deduction__value" id="withdrawAmount">$0.00</span>
+                                </div>
+                                <div class="total-deduction__small-wrap">
+                                    <p class="total-deduction__text">Network Fee:</p>
+                                    <span class="total-deduction__value" id="networkFee">~$2.50</span>
+                                </div>
+                                <div class="total-deduction__small-wrap small-bordered-wrap">
+                                    <p class="total-deduction__text font-weight-700">Total Deduction:</p>
+                                    <span class="total-deduction__value font-weight-700" id="totalDeduction">$0.00</span>
+                                </div>
+                            </div>
+                            <div class="info-box">
+                                <div class="info-box-content">
+                                    • Double-check the withdrawal address<br>
+                                    • Incorrect address may result in permanent loss<br>
+                                    • Minimum withdrawal: $10 USD<br>
+                                    • Processing time: 15-60 minutes
+                                </div>
+                            </div>
+                            <button type="submit" class="submit-btn" id="submitBtn">
+                                Create Withdrawal Request
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </section>
         </main>
         <footer class="footer">
             <div class="footer__container">

@@ -91,6 +91,15 @@ const refs = {
     faqSection: document.querySelector('.faq'),
     faqItems: document.querySelectorAll('.faq__item'),
     faqArrows: document.querySelectorAll('.faq__item-arrow'),
+
+    depositRequestMoreInfoWrap: document.querySelector('.deposit-request__more-info-wrap'),
+    moreInfoArrow: document.querySelector('.more-info-arrow'),
+    stepperProgress: document.querySelector('.stepper__progress'),
+    stepperItems: document.querySelectorAll('.stepper__item'),
+
+    claimsTableMainWraps: document.querySelectorAll('.claims-table__main-wrap'),
+    claimHistoryMobDetailsBtn: document.querySelectorAll('.claim-history__mob-details-btn'),
+    claimHistoryItems: document.querySelectorAll('.claim-history__item'),
 };
 
 export const {
@@ -186,4 +195,13 @@ export const {
     faqSection,
     faqItems,
     faqArrows,
+
+    depositRequestMoreInfoWrap,
+    moreInfoArrow,
+    stepperProgress,
+    stepperItems,
+
+    claimsTableMainWraps,
+    claimHistoryMobDetailsBtn,
+    claimHistoryItems,
 } = refs;
