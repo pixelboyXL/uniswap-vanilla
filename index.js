@@ -7,3 +7,4 @@ import "./js/referral-rpogram.js";
 import "./js/faq.js";
 import "./js/support.js";
 import "./js/withdraw.js";
+import "./js/withdraw-request.js";

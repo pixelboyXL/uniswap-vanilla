@@ -1820,6 +1820,82 @@
                     </div>
                 </div>
             </section>
+            <div id="modalOverlay" class="modal-overlay" style="display: none;">
+                <div class="modal">
+                    <h2 class="modal-title" id="modalTitle">Confirm Action</h2>
+                    <p class="modal-text" id="modalText">Are you sure?</p>
+                    <div class="modal-actions" id="modalActions">
+                        <button class="btn btn-cancel" id="modalCancelBtn">Cancel</button>
+                        <button class="btn btn-confirm" id="modalConfirmBtn">Confirm</button>
+                    </div>
+                    <div class="modal-actions" id="modalOkOnly" style="display:none;">
+                        <button class="btn btn-confirm" id="modalOkBtn">OK</button>
+                    </div>
+                </div>
+            </div>
+            <section class="withdraw-request" style="display: none;">
+                <div class="withdraw-request__container">
+                    <div class="status-bar" style="display: none;">
+                        <div class="status-dot" id="statusDot"></div>
+                        <span class="status-text" id="statusText">Loading...</span>
+                    </div>
+                    <h1 class="withdraw-request__title">Withdrawal Request</h1>
+                    <div class="info-card">
+                        <div class="info-grid">
+                            <div class="info-row">
+                                <span class="info-label">Amount</span>
+                                <span class="info-value amount" id="withdrawAmount">$0.00</span>
+                            </div>
+                            <div class="info-row">
+                                <span class="info-label">Network</span>
+                                <span class="info-value" id="networkName">Loading...</span>
+                            </div>
+                            <div class="info-row">
+                                <span class="info-label">Destination Address</span>
+                                <span class="info-value address" id="destinationAddress">Loading...</span>
+                            </div>
+                            <div class="info-row">
+                                <span class="info-label">Transaction ID</span>
+                                <span class="info-value transaction" id="transactionId">Loading...</span>
+                            </div>
+                            <div class="info-row">
+                                <span class="info-label">Created</span>
+                                <span class="info-value" id="createdTime">Loading...</span>
+                            </div>
+                        </div>
+                        <div class="timeline-section">
+                            <div class="timeline-title">Transaction Status</div>
+                            <div class="timeline">
+                                <div class="timeline-item completed" id="step1">
+                                    <div class="timeline-status">Request Created</div>
+                                    <div class="timeline-time" id="step1Time">Completed</div>
+                                </div>
+                                <div class="timeline-item active" id="step2">
+                                    <div class="timeline-status">Awaiting Approval</div>
+                                    <div class="timeline-time" id="step2Time">Current</div>
+                                </div>
+                                <div class="timeline-item" id="step3">
+                                    <div class="timeline-status">Processing</div>
+                                    <div class="timeline-time" id="step3Time">--</div>
+                                </div>
+                                <div class="timeline-item" id="step4">
+                                    <div class="timeline-status">Completed</div>
+                                    <div class="timeline-time" id="step4Time">--</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="messageBox"></div>
+                        <div class="action-buttons" id="actionButtons">
+                            <button class="btn btn-approve" id="approveBtn" onclick="approveWithdraw()">
+                                Confirm Withdrawal
+                            </button>
+                            <button class="btn btn-cancel" id="cancelBtn" onclick="cancelWithdraw()">
+                                Cancel Request
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
         </main>
         <footer class="footer">
             <div class="footer__container">
