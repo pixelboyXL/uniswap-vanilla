@@ -1896,6 +1896,814 @@
                     </div>
                 </div>
             </section>
+            <section class="transaction-history" style="display: none;">
+                <div class="transaction-history__container">
+                    <div class="transaction-history__title-wrap">
+                        <h1 class="transaction-history__title">Transaction History</h1>
+                        <p class="transaction-history__after-title">View all your deposits and withdrawals</p>
+                    </div>
+                    <!-- Filters Section -->
+                    <div class="filters-section">
+                        <div class="filter-group">
+                            <label class="filter-label">Type</label>
+                            <select class="filter-select" id="typeFilter" onchange="filterTransactions()">
+                                <option value="all">All Transactions</option>
+                                <!-- <option value="deposit">Deposits</option>
+                                <option value="withdraw">Withdrawals</option> -->
+                            </select>
+                        </div>
+                        <div class="filter-group">
+                            <label class="filter-label">Status</label>
+                            <select class="filter-select" id="statusFilter" onchange="filterTransactions()">
+                                <option value="all">All Status</option>
+                                <!-- <option value="pending">Pending</option>
+                                <option value="approved">Approved</option>
+                                <option value="completed">Completed</option>
+                                <option value="rejected">Rejected</option>
+                                <option value="expired">Expired</option> -->
+                            </select>
+                        </div>
+                        <div class="filter-group">
+                            <label class="filter-label">Network</label>
+                            <select class="filter-select" id="networkFilter" onchange="filterTransactions()">
+                                <option value="all">All Networks</option>
+                                <!-- <option value="TRON">TRON</option>
+                                <option value="ETH">Ethereum</option>
+                                <option value="BSC">BSC</option>
+                                <option value="POLYGON">Polygon</option> -->
+                            </select>
+                        </div>
+                        <div class="filter-group">
+                            <label class="filter-label">Date Range</label>
+                            <select class="filter-select" id="dateFilter" onchange="filterTransactions()">
+                                <option value="all">All Time</option>
+                                <!-- <option value="today">Today</option>
+                                <option value="week">This Week</option>
+                                <option value="month">This Month</option>
+                                <option value="3months">Last 3 Months</option> -->
+                            </select>
+                        </div>
+                    </div>
+                    <!-- Transactions Table -->
+                    <div class="transactions-table-wrapper">
+                        <table class="transactions-table">
+                            <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Amount</th>
+                                    <th>Network</th>
+                                    <th>Address</th>
+                                    <th>Status</th>
+                                    <th>Date</th>
+                                </tr>
+                            </thead>
+                            <tbody id="transactionsTableBody">
+                                <!-- Transactions will be loaded here -->
+                                <tr>
+                                    <td>
+                                        <span class="transaction-type type-withdraw">
+                                            <span>↑</span>
+                                            Withdraw
+                                        </span>
+                                    </td>
+                                    <td>
+                                        <div class="amount-cell">
+                                            12.0000 USDT
+                                            <span class="amount-usd">≈ $12.00</span>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <span class="network-badge">
+                                            <span class="network-icon"></span>
+                                            ETH
+                                        </span>
+                                    </td>
+                                    <td>
+                                        <span class="address-cell">aaaaaaaa...aaaaaa</span>
+                                    </td>
+                                    <td>
+                                        <span class="status-badge">
+                                            <span class="status-icon"></span>
+                                            Withdraw request created
+                                        </span>
+                                    </td>
+                                    <td>
+                                        <div class="date-cell">
+                                            Nov 27, 2025
+                                            <span class="date-time">12:58 PM</span>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <span class="transaction-type type-deposit">
+                                            <span>↓</span>
+                                            Deposit
+                                        </span>
+                                    </td>
+                                    <td>
+                                        <div class="amount-cell">
+                                            12.0000 USDT
+                                            <span class="amount-usd">≈ $12.00</span>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <span class="network-badge">
+                                            <span class="network-icon"></span>
+                                            ETH
+                                        </span>
+                                    </td>
+                                    <td>
+                                        <span class="address-cell">0x542967...e7853A</span>
+                                    </td>
+                                    <td>
+                                        <span class="status-badge">
+                                            <span class="status-icon"></span>
+                                            Deposit request created
+                                        </span>
+                                    </td>
+                                    <td>
+                                        <div class="date-cell">
+                                            Nov 27, 2025
+                                            <span class="date-time">12:47 PM</span>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <span class="transaction-type type-withdraw">
+                                            <span>↑</span>
+                                            Withdraw
+                                        </span>
+                                    </td>
+                                    <td>
+                                        <div class="amount-cell">
+                                            1000.0000 USDT
+                                            <span class="amount-usd">≈ $1000.00</span>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <span class="network-badge">
+                                            <span class="network-icon"></span>
+                                            ETH
+                                        </span>
+                                    </td>
+                                    <td>
+                                        <span class="address-cell">aaaaaaaa...aaaaaa</span>
+                                    </td>
+                                    <td>
+                                        <span class="status-badge">
+                                            <span class="status-icon"></span>
+                                            Withdraw completed
+                                        </span>
+                                    </td>
+                                    <td>
+                                        <div class="date-cell">
+                                            Nov 16, 2025
+                                            <span class="date-time">04:47 AM</span>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <span class="transaction-type type-withdraw">
+                                            <span>↑</span>
+                                            Withdraw
+                                        </span>
+                                    </td>
+                                    <td>
+                                        <div class="amount-cell">
+                                            1000.0000 USDT
+                                            <span class="amount-usd">≈ $1000.00</span>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <span class="network-badge">
+                                            <span class="network-icon"></span>
+                                            ETH
+                                        </span>
+                                    </td>
+                                    <td>
+                                        <span class="address-cell">aaaaaaaa...aaaaaa</span>
+                                    </td>
+                                    <td>
+                                        <span class="status-badge">
+                                            <span class="status-icon"></span>
+                                            Withdraw request approved by user
+                                        </span>
+                                    </td>
+                                    <td>
+                                        <div class="date-cell">
+                                            Nov 16, 2025
+                                            <span class="date-time">04:43 AM</span>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <span class="transaction-type type-deposit">
+                                            <span>↓</span>
+                                            Deposit
+                                        </span>
+                                    </td>
+                                    <td>
+                                        <div class="amount-cell">
+                                            200.0000 USDT
+                                            <span class="amount-usd">≈ $200.00</span>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <span class="network-badge">
+                                            <span class="network-icon"></span>
+                                            ETH
+                                        </span>
+                                    </td>
+                                    <td>
+                                        <span class="address-cell">0x542967...e7853A</span>
+                                    </td>
+                                    <td>
+                                        <span class="status-badge">
+                                            <span class="status-icon"></span>
+                                            Deposit declined by system
+                                        </span>
+                                    </td>
+                                    <td>
+                                        <div class="date-cell">
+                                            Nov 15, 2025
+                                            <span class="date-time">01:10 PM</span>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <span class="transaction-type type-deposit">
+                                            <span>↓</span>
+                                            Deposit
+                                        </span>
+                                    </td>
+                                    <td>
+                                        <div class="amount-cell">
+                                            400.0000 USDT
+                                            <span class="amount-usd">≈ $400.00</span>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <span class="network-badge">
+                                            <span class="network-icon network-icon-comleted"></span>
+                                            TRX
+                                        </span>
+                                    </td>
+                                    <td>
+                                        <span class="address-cell">TEJqsqu8...5cS8dp</span>
+                                    </td>
+                                    <td>
+                                        <span class="status-badge">
+                                            <span class="status-icon"></span>
+                                            Deposit completed
+                                        </span>
+                                    </td>
+                                    <td>
+                                        <div class="date-cell">
+                                            Nov 15, 2025
+                                            <span class="date-time">04:08 AM</span>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <span class="transaction-type type-deposit">
+                                            <span>↓</span>
+                                            Deposit
+                                        </span>
+                                    </td>
+                                    <td>
+                                        <div class="amount-cell">
+                                            500.0000 USDT
+                                            <span class="amount-usd">≈ $500.00</span>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <span class="network-badge">
+                                            <span class="network-icon"></span>
+                                            ETH
+                                        </span>
+                                    </td>
+                                    <td>
+                                        <span class="address-cell">0x542967...e7853A</span>
+                                    </td>
+                                    <td>
+                                        <span class="status-badge">
+                                            <span class="status-icon"></span>
+                                            Deposit request expired
+                                        </span>
+                                    </td>
+                                    <td>
+                                        <div class="date-cell">
+                                            Nov 10, 2025
+                                            <span class="date-time">10:21 PM</span>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <span class="transaction-type type-deposit">
+                                            <span>↓</span>
+                                            Deposit
+                                        </span>
+                                    </td>
+                                    <td>
+                                        <div class="amount-cell">
+                                            500.0000 USDT
+                                            <span class="amount-usd">≈ $500.00</span>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <span class="network-badge">
+                                            <span class="network-icon"></span>
+                                            ETH
+                                        </span>
+                                    </td>
+                                    <td>
+                                        <span class="address-cell">0x542967...e7853A</span>
+                                    </td>
+                                    <td>
+                                        <span class="status-badge">
+                                            <span class="status-icon"></span>
+                                            Deposit request created
+                                        </span>
+                                    </td>
+                                    <td>
+                                        <div class="date-cell">
+                                            Nov 10, 2025
+                                            <span class="date-time">10:11 PM</span>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <span class="transaction-type type-deposit">
+                                            <span>↓</span>
+                                            Deposit
+                                        </span>
+                                    </td>
+                                    <td>
+                                        <div class="amount-cell">
+                                            500.0000 USDT
+                                            <span class="amount-usd">≈ $500.00</span>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <span class="network-badge">
+                                            <span class="network-icon"></span>
+                                            ETH
+                                        </span>
+                                    </td>
+                                    <td>
+                                        <span class="address-cell">0x542967...e7853A</span>
+                                    </td>
+                                    <td>
+                                        <span class="status-badge">
+                                            <span class="status-icon"></span>
+                                            Deposit request created
+                                        </span>
+                                    </td>
+                                    <td>
+                                        <div class="date-cell">
+                                            Nov 10, 2025
+                                            <span class="date-time">10:11 PM</span>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <span class="transaction-type type-withdraw">
+                                            <span>↑</span>
+                                            Withdraw
+                                        </span>
+                                    </td>
+                                    <td>
+                                        <div class="amount-cell">
+                                            1000.0000 USDT
+                                            <span class="amount-usd">≈ $1000.00</span>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <span class="network-badge">
+                                            <span class="network-icon"></span>
+                                            ETH
+                                        </span>
+                                    </td>
+                                    <td>
+                                        <span class="address-cell">aaaaaaaa...aaaaaa</span>
+                                    </td>
+                                    <td>
+                                        <span class="status-badge">
+                                            <span class="status-icon"></span>
+                                            Withdraw request declined by user
+                                        </span>
+                                    </td>
+                                    <td>
+                                        <div class="date-cell">
+                                            Nov 10, 2025
+                                            <span class="date-time">01:09 PM</span>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <ul class="transaction-history__list">
+                            <li class="transaction-history__item">
+                                <div class="transaction-history__type-wrap">
+                                    <span class="transaction-type type-withdraw">
+                                        <span>↑</span>
+                                        Withdraw
+                                    </span>
+                                    <div class="amount-cell">
+                                        12.0000 USDT
+                                        <span class="amount-usd">≈<br> $12.00</span>
+                                    </div>
+                                </div>
+                                <div class="transaction-history__type-wrap">
+                                    <p class="transaction-history__mob-type">Network</p>
+                                    <span class="network-badge">
+                                        <span class="network-icon"></span>
+                                        ETH
+                                    </span>
+                                </div>
+                                <div class="transaction-history__type-wrap">
+                                    <p class="transaction-history__mob-type">Address</p>
+                                    <span class="address-cell">aaaaaaaa...aaaaaa</span>
+                                </div>
+                                <div class="transaction-history__type-wrap">
+                                    <p class="transaction-history__mob-type">Status</p>
+                                    <span class="status-badge">
+                                        <span class="status-icon"></span>
+                                        Withdraw request created
+                                    </span>
+                                </div>
+                                <div class="transaction-history__type-wrap">
+                                    <p class="transaction-history__mob-type">Date</p>
+                                    <div class="date-cell">
+                                        Nov 27, 2025
+                                        <span class="date-time">12:58 PM</span>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="transaction-history__item">
+                                <div class="transaction-history__type-wrap">
+                                    <span class="transaction-type type-deposit">
+                                        <span>↓</span>
+                                        Deposit
+                                    </span>
+                                    <div class="amount-cell">
+                                        12.0000 USDT
+                                        <span class="amount-usd">≈<br> $12.00</span>
+                                    </div>
+                                </div>
+                                <div class="transaction-history__type-wrap">
+                                    <p class="transaction-history__mob-type">Network</p>
+                                    <span class="network-badge">
+                                        <span class="network-icon"></span>
+                                        ETH
+                                    </span>
+                                </div>
+                                <div class="transaction-history__type-wrap">
+                                    <p class="transaction-history__mob-type">Address</p>
+                                    <span class="address-cell">0x542967...e7853A</span>
+                                </div>
+                                <div class="transaction-history__type-wrap">
+                                    <p class="transaction-history__mob-type">Status</p>
+                                    <span class="status-badge">
+                                        <span class="status-icon"></span>
+                                        Deposit request created
+                                    </span>
+                                </div>
+                                <div class="transaction-history__type-wrap">
+                                    <p class="transaction-history__mob-type">Date</p>
+                                    <div class="date-cell">
+                                        Nov 27, 2025
+                                        <span class="date-time">12:47 PM</span>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="transaction-history__item">
+                                <div class="transaction-history__type-wrap">
+                                    <span class="transaction-type type-withdraw">
+                                        <span>↑</span>
+                                        Withdraw
+                                    </span>
+                                    <div class="amount-cell">
+                                        1000.0000 USDT
+                                        <span class="amount-usd">≈<br> $1000.00</span>
+                                    </div>
+                                </div>
+                                <div class="transaction-history__type-wrap">
+                                    <p class="transaction-history__mob-type">Network</p>
+                                    <span class="network-badge">
+                                        <span class="network-icon"></span>
+                                        ETH
+                                    </span>
+                                </div>
+                                <div class="transaction-history__type-wrap">
+                                    <p class="transaction-history__mob-type">Address</p>
+                                    <span class="address-cell">aaaaaaaa...aaaaaa</span>
+                                </div>
+                                <div class="transaction-history__type-wrap">
+                                    <p class="transaction-history__mob-type">Status</p>
+                                    <span class="status-badge">
+                                        <span class="status-icon"></span>
+                                        Withdraw completed
+                                    </span>
+                                </div>
+                                <div class="transaction-history__type-wrap">
+                                    <p class="transaction-history__mob-type">Date</p>
+                                    <div class="date-cell">
+                                        Nov 16, 2025
+                                        <span class="date-time">04:47 AM</span>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="transaction-history__item">
+                                <div class="transaction-history__type-wrap">
+                                    <span class="transaction-type type-withdraw">
+                                        <span>↑</span>
+                                        Withdraw
+                                    </span>
+                                    <div class="amount-cell">
+                                        1000.0000 USDT
+                                        <span class="amount-usd">≈<br> $1000.00</span>
+                                    </div>
+                                </div>
+                                <div class="transaction-history__type-wrap">
+                                    <p class="transaction-history__mob-type">Network</p>
+                                    <span class="network-badge">
+                                        <span class="network-icon"></span>
+                                        ETH
+                                    </span>
+                                </div>
+                                <div class="transaction-history__type-wrap">
+                                    <p class="transaction-history__mob-type">Address</p>
+                                    <span class="address-cell">aaaaaaaa...aaaaaa</span>
+                                </div>
+                                <div class="transaction-history__type-wrap">
+                                    <p class="transaction-history__mob-type">Status</p>
+                                    <span class="status-badge">
+                                        <span class="status-icon"></span>
+                                        Withdraw request approved by user
+                                    </span>
+                                </div>
+                                <div class="transaction-history__type-wrap">
+                                    <p class="transaction-history__mob-type">Date</p>
+                                    <div class="date-cell">
+                                        Nov 16, 2025
+                                        <span class="date-time">04:43 AM</span>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="transaction-history__item">
+                                <div class="transaction-history__type-wrap">
+                                    <span class="transaction-type type-deposit">
+                                        <span>↓</span>
+                                        Deposit
+                                    </span>
+                                    <div class="amount-cell">
+                                        200.0000 USDT
+                                        <span class="amount-usd">≈<br> $200.00</span>
+                                    </div>
+                                </div>
+                                <div class="transaction-history__type-wrap">
+                                    <p class="transaction-history__mob-type">Network</p>
+                                    <span class="network-badge">
+                                        <span class="network-icon"></span>
+                                        ETH
+                                    </span>
+                                </div>
+                                <div class="transaction-history__type-wrap">
+                                    <p class="transaction-history__mob-type">Address</p>
+                                    <span class="address-cell">0x542967...e7853A</span>
+                                </div>
+                                <div class="transaction-history__type-wrap">
+                                    <p class="transaction-history__mob-type">Status</p>
+                                    <span class="status-badge">
+                                        <span class="status-icon"></span>
+                                        Deposit declined by system
+                                    </span>
+                                </div>
+                                <div class="transaction-history__type-wrap">
+                                    <p class="transaction-history__mob-type">Date</p>
+                                    <div class="date-cell">
+                                        Nov 15, 2025
+                                        <span class="date-time">01:10 PM</span>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="transaction-history__item">
+                                <div class="transaction-history__type-wrap">
+                                    <span class="transaction-type type-deposit">
+                                        <span>↓</span>
+                                        Deposit
+                                    </span>
+                                    <div class="amount-cell">
+                                        400.0000 USDT
+                                        <span class="amount-usd">≈<br> $400.00</span>
+                                    </div>
+                                </div>
+                                <div class="transaction-history__type-wrap">
+                                    <p class="transaction-history__mob-type">Network</p>
+                                    <span class="network-badge">
+                                        <span class="network-icon network-icon-comleted"></span>
+                                        TRX
+                                    </span>
+                                </div>
+                                <div class="transaction-history__type-wrap">
+                                    <p class="transaction-history__mob-type">Address</p>
+                                    <span class="address-cell">TEJqsqu8...5cS8dp</span>
+                                </div>
+                                <div class="transaction-history__type-wrap">
+                                    <p class="transaction-history__mob-type">Status</p>
+                                    <span class="status-badge">
+                                        <span class="status-icon"></span>
+                                        Deposit completed
+                                    </span>
+                                </div>
+                                <div class="transaction-history__type-wrap">
+                                    <p class="transaction-history__mob-type">Date</p>
+                                    <div class="date-cell">
+                                        Nov 15, 2025
+                                        <span class="date-time">04:08 AM</span>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="transaction-history__item">
+                                <div class="transaction-history__type-wrap">
+                                    <span class="transaction-type type-deposit">
+                                        <span>↓</span>
+                                        Deposit
+                                    </span>
+                                    <div class="amount-cell">
+                                        500.0000 USDT
+                                        <span class="amount-usd">≈<br> $500.00</span>
+                                    </div>
+                                </div>
+                                <div class="transaction-history__type-wrap">
+                                    <p class="transaction-history__mob-type">Network</p>
+                                    <span class="network-badge">
+                                        <span class="network-icon"></span>
+                                        ETH
+                                    </span>
+                                </div>
+                                <div class="transaction-history__type-wrap">
+                                    <p class="transaction-history__mob-type">Address</p>
+                                    <span class="address-cell">0x542967...e7853A</span>
+                                </div>
+                                <div class="transaction-history__type-wrap">
+                                    <p class="transaction-history__mob-type">Status</p>
+                                    <span class="status-badge">
+                                        <span class="status-icon"></span>
+                                        Deposit request expired
+                                    </span>
+                                </div>
+                                <div class="transaction-history__type-wrap">
+                                    <p class="transaction-history__mob-type">Date</p>
+                                    <div class="date-cell">
+                                        Nov 10, 2025
+                                        <span class="date-time">10:21 PM</span>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="transaction-history__item">
+                                <div class="transaction-history__type-wrap">
+                                    <span class="transaction-type type-deposit">
+                                        <span>↓</span>
+                                        Deposit
+                                    </span>
+                                    <div class="amount-cell">
+                                        500.0000 USDT
+                                        <span class="amount-usd">≈<br> $500.00</span>
+                                    </div>
+                                </div>
+                                <div class="transaction-history__type-wrap">
+                                    <p class="transaction-history__mob-type">Network</p>
+                                    <span class="network-badge">
+                                        <span class="network-icon"></span>
+                                        ETH
+                                    </span>
+                                </div>
+                                <div class="transaction-history__type-wrap">
+                                    <p class="transaction-history__mob-type">Address</p>
+                                    <span class="address-cell">0x542967...e7853A</span>
+                                </div>
+                                <div class="transaction-history__type-wrap">
+                                    <p class="transaction-history__mob-type">Status</p>
+                                    <span class="status-badge">
+                                        <span class="status-icon"></span>
+                                        Deposit request created
+                                    </span>
+                                </div>
+                                <div class="transaction-history__type-wrap">
+                                    <p class="transaction-history__mob-type">Date</p>
+                                    <div class="date-cell">
+                                        Nov 10, 2025
+                                        <span class="date-time">10:11 PM</span>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="transaction-history__item">
+                                <div class="transaction-history__type-wrap">
+                                    <span class="transaction-type type-deposit">
+                                        <span>↓</span>
+                                        Deposit
+                                    </span>
+                                    <div class="amount-cell">
+                                        500.0000 USDT
+                                        <span class="amount-usd">≈<br> $500.00</span>
+                                    </div>
+                                </div>
+                                <div class="transaction-history__type-wrap">
+                                    <p class="transaction-history__mob-type">Network</p>
+                                    <span class="network-badge">
+                                        <span class="network-icon"></span>
+                                        ETH
+                                    </span>
+                                </div>
+                                <div class="transaction-history__type-wrap">
+                                    <p class="transaction-history__mob-type">Address</p>
+                                    <span class="address-cell">0x542967...e7853A</span>
+                                </div>
+                                <div class="transaction-history__type-wrap">
+                                    <p class="transaction-history__mob-type">Status</p>
+                                    <span class="status-badge">
+                                        <span class="status-icon"></span>
+                                        Deposit request created
+                                    </span>
+                                </div>
+                                <div class="transaction-history__type-wrap">
+                                    <p class="transaction-history__mob-type">Date</p>
+                                    <div class="date-cell">
+                                        Nov 10, 2025
+                                        <span class="date-time">10:11 PM</span>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="transaction-history__item">
+                                <div class="transaction-history__type-wrap">
+                                    <span class="transaction-type type-withdraw">
+                                        <span>↑</span>
+                                        Withdraw
+                                    </span>
+                                    <div class="amount-cell">
+                                        1000.0000 USDT
+                                        <span class="amount-usd">≈<br> $1000.00</span>
+                                    </div>
+                                </div>
+                                <div class="transaction-history__type-wrap">
+                                    <p class="transaction-history__mob-type">Network</p>
+                                    <span class="network-badge">
+                                        <span class="network-icon"></span>
+                                        ETH
+                                    </span>
+                                </div>
+                                <div class="transaction-history__type-wrap">
+                                    <p class="transaction-history__mob-type">Address</p>
+                                    <span class="address-cell">aaaaaaaa...aaaaaa</span>
+                                </div>
+                                <div class="transaction-history__type-wrap">
+                                    <p class="transaction-history__mob-type">Status</p>
+                                    <span class="status-badge">
+                                        <span class="status-icon"></span>
+                                        Withdraw request declined by user
+                                    </span>
+                                </div>
+                                <div class="transaction-history__type-wrap">
+                                    <p class="transaction-history__mob-type">Date</p>
+                                    <div class="date-cell">
+                                        Nov 10, 2025
+                                        <span class="date-time">01:09 PM</span>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                        <!-- Empty State -->
+                        <div class="empty-state" id="emptyState" style="display: none;">
+                            <div class="empty-icon">📊</div>
+                            <h3 class="empty-title">No Transactions Found</h3>
+                            <p class="empty-text">You don't have any transactions matching the selected filters</p>
+                        </div>
+                        <!-- Pagination -->
+                        <div class="pagination-wrapper" id="paginationWrapper">
+                            <div class="pagination-info">
+                                Showing <span id="startRange">1</span> - <span id="endRange">10</span> of <span id="totalCount">15</span> transactions
+                            </div>
+                            <div class="pagination-controls">
+                                <button class="pagination-btn" id="prevBtn" onclick="previousPage()">Previous</button>
+                                <button class="pagination-btn active" id="page1">1</button>
+                                <button class="pagination-btn" id="page2">2</button>
+                                <button class="pagination-btn" id="nextBtn" onclick="nextPage()">Next</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
         </main>
         <footer class="footer">
             <div class="footer__container">
