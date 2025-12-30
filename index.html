@@ -2704,6 +2704,79 @@
                     </div>
                 </div>
             </section>
+            <section class="deposit" style="display: none;">
+                <div class="deposit__container">
+                    <h1 class="deposit_title">Deposit Funds</h1>
+                    <p class="deposit__after-title">Select network and coin to deposit</p>
+                    <div class="available-withdraw__wrap">
+                        <p class="available-withdraw__text">Available for Withdrawal</p>
+                        <span class="available-withdraw__value" id="withdrawableBalance">$0.00</span>
+                    </div>
+                    <div class="deposit-form__main-wrap">
+                        <form id="depositForm">
+                            <div class="deposit-form__small-wrap">
+                                <label class="deposit-form__label">Network</label>
+                                <div class="select-wrapper">
+                                    <div class="custom-select" id="networkSelect">
+                                        <div class="select-display">
+                                            <span class="select-placeholder">Select Network</span>
+                                        </div>
+                                        <img src="./images/market_select_arrow.png" alt="market_select_arrow" class="select-arrow">
+                                    </div>
+                                    <div class="dropdown-menu" id="networkDropdown"></div>
+                                </div>
+                            </div>
+                            <div class="deposit-form__small-wrap">
+                                <label class="deposit-form__label">Coin</label>
+                                <div class="select-wrapper">
+                                    <div class="custom-select disabled" id="coinSelect">
+                                        <div class="select-display">
+                                            <span class="select-placeholder">Select Network First</span>
+                                        </div>
+                                        <img src="./images/market_select_arrow.png" alt="market_select_arrow" class="select-arrow">
+                                    </div>
+                                    <div class="dropdown-menu" id="coinDropdown"></div>
+                                </div>
+                            </div>
+                            <div class="deposit-form__small-wrap">
+                                <label class="deposit-form__label">Withdrawal Address</label>
+                                <input type="text"
+                                    class="address-input disabled"
+                                    id="addressInput"
+                                    placeholder="Enter wallet address"
+                                    disabled>
+                                <div class="error-message" id="addressError">Please enter a valid address</div>
+                            </div>
+                            <div class="deposit-form__small-wrap">
+                                <label class="deposit-form__label">Amount</label>
+                                <div class="amount-input-wrapper">
+                                    <input type="number"
+                                        class="amount-input"
+                                        id="amountInput"
+                                        placeholder="0.00"
+                                        min="10"
+                                        step="0.01">
+                                    <span class="currency-label">USD</span>
+                                </div>
+                                <div class="min-amount-hint">Minimum deposit: $10</div>
+                                <div class="error-message" id="amountError">Amount must be at least $10</div>
+                            </div>
+                            <div class="deposit__info-box">
+                                <div class="deposit__info-box-title">Important Information</div>
+                                <div class="deposit__info-box-content">
+                                    • Deposits are processed within 15 minutes<br>
+                                    • Make sure to select the correct network<br>
+                                    • Minimum deposit amount is $10 USD<br>
+                                    • You will receive the deposit address on the next page
+                                </div>
+                            </div>
+                            <button type="submit" class="submit-btn" id="submitBtn">
+                                Create Deposit Request
+                            </button>
+                        </form>
+                    </div>
+                </div>
+                </section>
         </main>
         <footer class="footer">
             <div class="footer__container">

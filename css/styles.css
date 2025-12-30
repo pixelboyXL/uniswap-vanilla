@@ -4091,6 +4091,293 @@ body::-webkit-scrollbar-thumb {
     to { transform: rotate(360deg); }
 }
 
+/*////////////////////////////// DEPOSIT //////////////////////////////*/
+
+.deposit {
+    padding: 60px 0;
+}
+
+.deposit__container {
+    max-width: 342px;
+    margin: 0 auto;
+    @media screen and (min-width: 1440px) {
+        max-width: 552px;
+    }
+}
+
+.deposit_title {
+    font-weight: 500;
+    font-size: 46px;
+    margin: 0 auto;
+    margin-bottom: 17px;
+    text-align: center;
+    color: var(--clearly-white);
+    max-width: 200px;
+    @media screen and (min-width: 1440px) {
+        max-width: 100%;
+    }
+}
+
+.deposit__after-title {
+    font-size: 16px;
+    text-align: center;
+    margin-bottom: 41px;
+    color: var(--uniswap-withdraw-grey);
+}
+
+.available-withdraw__wrap {
+    padding: 20px 0;
+    text-align: center;
+    border-radius: 16px;
+    border: 1px solid var(--uniswap-withdraw-rgba-green);
+    background-color: var(--uniswap-withdraw-rgba-dark-green);
+    margin-bottom: 16px;
+}
+
+.available-withdraw__text {
+    font-weight: 400;
+    font-size: 14px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--uniswap-withdraw-grey);
+    margin-bottom: 8px;
+}
+
+.available-withdraw__value {
+    font-weight: 700;
+    font-size: 32px;
+    color: var(--uniswap-withdraw-green);
+}
+
+.deposit-form__main-wrap {
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 20px;
+    padding-left: 15px;
+    padding-top: 40px;
+    padding-right: 15px;
+    padding-bottom: 30px;
+    background-color: var(--uniswap-dark);
+    @media screen and (min-width: 1440px) {
+        padding-left: 32px;
+        padding-right: 32px;
+    }
+}
+
+.deposit-form__small-wrap {
+    margin-bottom: 21px;
+}
+
+.deposit-form__label {
+    display: block;
+    font-size: 14px;
+    color: var(--uniswap-withdraw-grey);
+    margin-bottom: 8px;
+}
+
+.select-wrapper {
+    position: relative;
+}
+
+.custom-select {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    user-select: none;
+    width: 100%;
+    max-width: 486px;
+    padding: 14px 16px;
+    background-color: var(--uniswap-light-dark);
+    border-radius: 12px;
+    border: 1px solid var(--uniswap-withdraw-rgba-border);
+    transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.custom-select.active {
+    border-color: var(--uniswap-pink);
+}
+
+.custom-select.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+.select-display {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.network-icon,
+.coin-icon {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    object-fit: cover;
+    background: #2a2a2a;
+}
+
+.select-placeholder {
+    font-weight: 400;
+    font-size: 16px;
+    color: var(--uniswap-withdraw-dark-grey);
+}
+
+.select-arrow {
+    width: 12px;
+    transition: all 500ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.select-arrow.open {
+    transform: rotateZ(-180deg);
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: calc(100% + 4px);
+    left: 0;
+    right: 0;
+    border: 1px solid var(--uniswap-market-border);
+    border-radius: 12px;
+    background-color: var(--uniswap-dark);
+    display: none;
+    max-height: 240px;
+    overflow-y: auto;
+    z-index: 100;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+}
+
+.dropdown-menu.open {
+    display: block;
+}
+
+.dropdown-option {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 16px;
+    cursor: pointer;
+    transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.dropdown-option:hover {
+    background-color: var(--uniswap-light-dark);
+}
+
+.dropdown-option.selected {
+    color: var(--uniswap-pink);
+    background-color: var(--uniswap-light-dark);
+}
+
+.amount-input-wrapper {
+    position: relative;
+}
+
+.amount-input,
+.address-input {
+    font-size: 18px;
+    color: var(--clearly-white);
+    background-color: var(--uniswap-light-dark);
+    width: 100%;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 14px 48px 14px 16px;
+    transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.amount-input:focus,
+.address-input:focus {
+    outline: none;
+    border-color: var(--uniswap-pink);
+    background: rgba(56, 189, 248, 0.05);
+}
+
+.amount-input::placeholder,
+.address-input::placeholder {
+    color: var(--uniswap-withdraw-dark-grey);
+}
+
+.amount-input.disabled,
+.address-input.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+.currency-label {
+    font-weight: 700;
+    font-size: 16px;
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+    color: var(--uniswap-withdraw-grey);
+}
+
+.deposit__info-box {
+    padding: 16px;
+    padding-right: 0;
+    margin-bottom: 21px;
+    border-radius: 12px;
+    border: 1px solid var(--uniswap-error);
+    background-color: var(--uniswap-background-error);
+}
+
+.deposit__info-box-title,
+.deposit__info-box-content {
+    font-weight: 500;
+    font-size: 12px;
+    line-height: calc(19.5 / 12);
+    color: var(--uniswap-error);
+    @media screen and (min-width: 1440px) {
+        font-size: 13px;
+        line-height: calc(19.5 / 13);
+    }
+}
+
+.submit-btn {
+    font-size: 18px;
+    border-radius: 12px;
+    border: none;
+    color: var(--clearly-white);
+    background-color: var(--uniswap-dark-pink);
+    position: relative;
+    width: 100%;
+    padding: 16px;
+    overflow: hidden;
+    cursor: not-allowed;
+    transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.submit-btn.active {
+    background-color: var(--uniswap-pink);
+    cursor: pointer;
+}
+
+.submit-btn.loading {
+    pointer-events: none;
+    background-color:  var(--uniswap-withdraw-grey);
+}
+
+.error-message {
+    font-size: 12px;
+    color: var(--uniswap-error);
+    display: none;
+    margin-top: 4px;
+}
+
+.error-message.show {
+    display: block;
+}
+
+.min-amount-hint {
+    font-size: 14px;
+    color: var(--uniswap-withdraw-grey);
+    margin-top: 8px;
+}
+
 /*////////////////////////////// FOOTER //////////////////////////////*/
 
 .footer__container {
